@@ -104,7 +104,8 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" })
+mytextclock = awful.widget.textclock({ align = "right" }, " %y-%m-%d  %H:%M ", 1)
+
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -255,6 +256,7 @@ globalkeys = awful.util.table.join(
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
