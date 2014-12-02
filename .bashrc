@@ -121,6 +121,9 @@ alias lh="ls -lhAB"
 # Always show the diffs at the bottom of the commits
 alias gc="git commit -v"
 
+# Shorthand for upgrading debian/ubuntu
+alias upg="sudo apt-get update && sudo apt-get dist-upgrade"
+
 if [[ -z "$PROMPT_COMMAND" ]]; then
     PROMPT_COMMAND=newPrompt
 else
