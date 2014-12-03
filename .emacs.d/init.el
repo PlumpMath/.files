@@ -18,10 +18,10 @@
 (require 'company-conf)
 
 ;; Put scroll bar on the right in graphical mode.
-(set-scroll-bar-mode 'right)
+;;(set-scroll-bar-mode 'right)
 ;; Hide the menu- and tool-bar in graphical mode.
-(menu-bar-mode -1)
-(tool-bar-mode -1)
+;;(menu-bar-mode -1)
+;;(tool-bar-mode -1)
 
 ;; Make scrolling by mouse linear
 (setq mouse-wheel-progressive-speed nil)
