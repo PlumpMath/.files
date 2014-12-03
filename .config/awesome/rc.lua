@@ -10,11 +10,6 @@ require("naughty")
 -- Load Debian menu entries
 require("debian.menu")
 
--- Run my autostart script
-dofile(awful.util.getdir("config") .. "/" .. "autostart.lua")
--- Set up the run_or_raise function
-dofile(awful.util.getdir("config") .. "/" .. "run-or-raise.lua")
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -76,11 +71,15 @@ layouts =
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
-tags = {}
-for s = 1, screen.count() do
-    -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[2])
-end
+ tags = {
+   names  = { "web", "work", "mail", "music", "float", 6, 7, 8, 9 },
+   layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[1],
+              layouts[2], layouts[2], layouts[2], layouts[2]
+ }}
+ for s = 1, screen.count() do
+     -- Each screen has its own tag table.
+     tags[s] = awful.tag(tags.names, s, tags.layout)
+ end
 -- }}}
 
 -- {{{ Menu
@@ -240,10 +239,10 @@ globalkeys = awful.util.table.join(
 
     -- Launching programs
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Shift"   }, "f", function () run_or_raise("firefox", {name = "Firefox"}) end),
-    awful.key({ modkey, "Shift"   }, "t", function () run_or_raise("thunar", {name = "File Manager"} ) end),
-    awful.key({ modkey, "Shift"   }, "n", function () run_or_raise("nautilus", {name = "Nautilus"} ) end),
-    awful.key({ modkey, "Shift"   }, "odiaeresis", function () run_or_raise("emacs", {name = "emacs@ThinkUbuntu"} ) end),
+    awful.key({ modkey, "Shift"   }, "f", function () awful.util.spawn("firefox") end),
+    awful.key({ modkey, "Shift"   }, "t", function () awful.util.spawn("thunar") end),
+    awful.key({ modkey, "Shift"   }, "n", function () awful.util.spawn("nautilus") end),
+    awful.key({ modkey, "Shift"   }, "odiaeresis", function () awful.util.spawn("emacsclient -c") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
 
@@ -251,8 +250,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Power management
-    awful.key({ modkey, "Control" }, "s", function () awful.util.spawn('dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend') end),
-    awful.key({ }, "XF86Launch1", function () awful.util.spawn('dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend') end),
+    awful.key({ modkey, "Control" }, "s", function () awful.util.spawn('xscreensaver-command --lock && sleep 1 && dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend') end),
+    awful.key({ }, "XF86Launch1", function () awful.util.spawn('xset dpms force off') end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
@@ -353,12 +352,11 @@ awful.rules.rules = {
     -- Make the Subsonic Firefox window always map to tag 4
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
-    { rule = { title = "Audacious" },
-      properties = { tag = tags[4] } },
+    { rule = { title = "audacious" },
+      properties = { tag = tags[3] } },
     -- Fullscreen flash
     { rule = { instance = "plugin-container" },
      properties = { floating = true } },
-
 }
 -- }}}
 
@@ -391,5 +389,8 @@ end)
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
 -- }}}
 
+-- Run my autostart script
+dofile(awful.util.getdir("config") .. "/" .. "autostart.lua")

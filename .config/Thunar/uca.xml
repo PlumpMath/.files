@@ -1,0 +1,24 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>audacious</icon>
+	<name>Spela upp med Audacious</name>
+	<unique-id>1410267233368571-1</unique-id>
+	<command>audacious %F</command>
+	<description>Spela upp musik med musikspelaren Audacious</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+	<audio-files/>
+</action>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Öppna terminal här</name>
+	<unique-id>1393497028575230-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Exempel på en anpassad åtgärd</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+</actions>

@@ -36,16 +36,7 @@ ${voffset -16}${offset 0}${color EAEAEA}${font GE Inspira:pixelsize=22}${time %B
 ${voffset 36}${offset -176}${font GE Inspira:pixelsize=58}${time %A}
 \
 ${voffset -50}${font Ubuntu:pixelsize=11}\
-${offset 12}${color FFA300}TEMP $color ${execi 8 sensors | grep temp1: | cut -c16-21}\
+${offset 12}${color FFA300}TEMP $color ${execi 8 sensors | grep -m 1 temp1: | cut -c16-21}\
 ${offset 28}${color FFA300}HD $color${fs_free /} / ${fs_size /}\
 ${offset 28}${color FFA300}RAM $color$mem / $memmax\
 ${offset 28}${color FFA300}CPU $color${cpu cpu0}%\
-
-
-
-
-
-
-
-
-

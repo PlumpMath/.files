@@ -1,9 +1,0 @@
-My own config files.
-
-Debian dependency list:
-$ sudo apt-get install awesome feh conky firefox emacs lxterminal audacious thunar hunspell gpicview
-
-
-In order to add emerge as mergetool run:
-$ git config --global merge.tool emerge
-$ git config --global mergetool.emerge.path $HOME/.emacs.d/emerge-for-git
