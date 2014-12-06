@@ -135,3 +135,6 @@ alias node=nodejs
 
 # Fixing not being able to type dead keys in emacs
 XMODIFIERS="emacs"
+
+# Tell golang where my workspace is
+GOPATH=$HOME/source/go
