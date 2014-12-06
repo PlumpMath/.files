@@ -11,7 +11,10 @@
 										 flycheck
 										 pos-tip
 										 auto-complete-clang-async
-										 iy-go-to-char))
+										 iy-go-to-char
+										 go-mode
+										 company-go
+										 ))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
