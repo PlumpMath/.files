@@ -14,6 +14,7 @@
 										 iy-go-to-char
 										 go-mode
 										 company-go
+										 ace-window
 										 ))
 
 ;; list the repositories containing them

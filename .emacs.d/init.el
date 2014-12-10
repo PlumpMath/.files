@@ -34,7 +34,8 @@
 							js2-basic-offset tab-width
 							sh-basic-offset tab-width
 							sh-indentation tab-width
-							sgml-basic-offset tab-width)
+							sgml-basic-offset tab-width
+							python-indent tab-width)
 
 ;; Color paranthesis in all the colors of the rainbow!
 ;; Requires the fallowing plugin http://www.emacswiki.org/emacs/RainbowDelimiters
@@ -112,13 +113,6 @@
 ;; Should be a fix for <dead-acute> is undefined.
 (require 'iso-transl)
 
-;; Turn on "on the fly" spellchecking for comments and strings.
-(add-hook 'js2-mode-hook 'flyspell-prog-mode)
-(add-hook 'css-mode-hook 'flyspell-prog-mode)
-(add-hook 'html-mode-hook 'flyspell-prog-mode)
-(add-hook 'octave-mode-hook 'flyspell-prog-mode)
-(add-hook 'c++-mode-hook 'flyspell-prog-mode)
-
 ;; And normal spell checking for latex documents
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
@@ -143,6 +137,15 @@
 (global-set-key (kbd "M-p") 'iy-go-to-char-backward)
 (setq iy-go-to-char-key-forward '¨)
 (setq iy-go-to-char-key-backward '^)
+
+;; Load my custom settings for golang
+(add-hook 'before-save-hook 'gofmt-before-save)
+
+;; Set up ace-window
+(setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s))
+(setq ace-jump-mode-move-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n ?s))
+(global-set-key (kbd "C-c C-SPC") 'ace-window)
+(global-set-key (kbd "M-SPC") 'ace-jump-mode)
 
 (provide 'init)
 ;;; init.el ends here
