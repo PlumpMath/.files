@@ -72,7 +72,7 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
  tags = {
-   names  = { "web", "work", "mail", "music", "float", 6, 7, 8, 9 },
+   names  = { "web", "work", "prog", "music", "float", 6, 7, 8, 9 },
    layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[1],
               layouts[2], layouts[2], layouts[2], layouts[2]
  }}
@@ -250,9 +250,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Power management
-    awful.key({ modkey, "Control" }, "s", function () awful.util.spawn('xscreensaver-command --lock && sleep 1 && dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend') end),
     awful.key({ }, "XF86Launch1", function () awful.util.spawn('xset dpms force off') end),
-
+    awful.key({ modkey, "Control" }, "s", function ()
+								 awful.util.spawn('xscreensaver-command --lock')
+								 awful.util.spawn('dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend')
+																					end),
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
