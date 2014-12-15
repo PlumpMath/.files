@@ -20,7 +20,7 @@
 ;; Put scroll bar on the right in graphical mode.
 (lambda ()
   (when (display-graphic-p)
-    (setq-local flycheck-indication-mode)))
+    (set-scroll-bar-mode 'right)))
 
 ;; Hide the menu- and tool-bar in graphical mode.
 (menu-bar-mode -1)
