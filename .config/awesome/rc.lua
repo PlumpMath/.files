@@ -222,10 +222,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,		}, "aring", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey,    	}, "odiaeresis", function () awful.client.swap.byidx( -1)    end),
     -- Resizing windows
-    awful.key({ modkey,           }, "e",     function () awful.tag.incmwfact( 0.01)    end),
-    awful.key({ modkey,           }, "a",     function () awful.tag.incmwfact(-0.01)    end),
-    awful.key({ modkey,		  }, "adiaeresis", function () awful.client.incwfact(-0.05) end),
-    awful.key({ modkey,		  }, "o", function () awful.client.incwfact( 0.05) end),
+    awful.key({ modkey,           }, "e",     function () awful.tag.incmwfact( 0.1)    end),
+    awful.key({ modkey,           }, "a",     function () awful.tag.incmwfact(-0.1)    end),
+    awful.key({ modkey,		  }, "adiaeresis", function () awful.client.incwfact(-0.5) end),
+    awful.key({ modkey,		  }, "o", function () awful.client.incwfact( 0.5) end),
     -- Increase number of windows in row
     awful.key({ modkey, "Shift"   }, "a",     function () awful.tag.incnmaster( 1)      end),
     awful.key({ modkey, "Shift"   }, "e",     function () awful.tag.incnmaster(-1)      end),
@@ -245,6 +245,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "odiaeresis", function () awful.util.spawn("emacsclient -c") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
+
+		-- Haha
+		awful.key({ modkey }, "c", function () run_once("mplayer ~/Dropbox/Ljud/ostrich_track2.aac") end),
 
     -- Window controls
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
