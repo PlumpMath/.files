@@ -22,7 +22,7 @@ if [[ ! $1 == nox ]]; then
     sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
     sudo update-alternatives --set x-www-browser /usr/bin/firefox
 else
-    sudo apt-get install git emacs23-nox hunspell htop
+    sudo apt-get install git emacs23-nox hunspell htop screen
 fi
 
 # In order to add emerge as mergetool run:
