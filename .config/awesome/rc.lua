@@ -75,9 +75,9 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
  tags = {
-   names  = { "web", "work", "prog", "music", "float", 6, 7, 8, 9 },
-   layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[1],
-              layouts[2], layouts[2], layouts[2], layouts[2]
+   names  = { " § ", "web", "work", "prog", "music", "float", 6, 7, 8, 9 },
+   layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[2],
+              layouts[1], layouts[2], layouts[2], layouts[2], layouts[2]
  }}
  for s = 1, screen.count() do
      -- Each screen has its own tag table.
@@ -225,10 +225,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,		}, "aring", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey,    	}, "odiaeresis", function () awful.client.swap.byidx( -1)    end),
     -- Resizing windows
-    awful.key({ modkey,           }, "e",     function () awful.tag.incmwfact( 0.01)    end),
-    awful.key({ modkey,           }, "a",     function () awful.tag.incmwfact(-0.01)    end),
-    awful.key({ modkey,		  }, "adiaeresis", function () awful.client.incwfact(-0.05) end),
-    awful.key({ modkey,		  }, "o", function () awful.client.incwfact( 0.05) end),
+    awful.key({ modkey,           }, "e",     function () awful.tag.incmwfact( 0.1)    end),
+    awful.key({ modkey,           }, "a",     function () awful.tag.incmwfact(-0.1)    end),
+    awful.key({ modkey,		  }, "adiaeresis", function () awful.client.incwfact(-0.5) end),
+    awful.key({ modkey,		  }, "o", function () awful.client.incwfact( 0.5) end),
     -- Increase number of windows in row
     awful.key({ modkey, "Shift"   }, "a",     function () awful.tag.incnmaster( 1)      end),
     awful.key({ modkey, "Shift"   }, "e",     function () awful.tag.incnmaster(-1)      end),
@@ -249,12 +249,15 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
 
+		-- Haha
+		awful.key({ modkey }, "c", function () run_once("mplayer ~/Dropbox/Ljud/ostrich_track2.aac") end),
+
     -- Window controls
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Power management
     awful.key({ }, "XF86Launch1", function () awful.util.spawn('xset dpms force off') end),
-    awful.key({ modkey, "Control" }, "s", function ()
+    awful.key({ modkey, "Shift" }, "s", function ()
 								 awful.util.spawn('xscreensaver-command --lock')
 								 awful.util.spawn('dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend')
 																					end),
@@ -306,29 +309,58 @@ for i = 1, keynumber do
                   function ()
                         local screen = mouse.screen
                         if tags[screen][i] then
-                            awful.tag.viewonly(tags[screen][i])
+                            awful.tag.viewonly(tags[screen][i + 1])
                         end
                   end),
         awful.key({ modkey, "Control" }, "#" .. i + 9,
                   function ()
                       local screen = mouse.screen
                       if tags[screen][i] then
-                          awful.tag.viewtoggle(tags[screen][i])
+                          awful.tag.viewtoggle(tags[screen][i + 1])
                       end
                   end),
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
                   function ()
-                      if client.focus and tags[client.focus.screen][i] then
-                          awful.client.movetotag(tags[client.focus.screen][i])
+                      if client.focus and tags[client.focus.screen][i + 1] then
+                          awful.client.movetotag(tags[client.focus.screen][i + 1])
                       end
                   end),
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
                   function ()
-                      if client.focus and tags[client.focus.screen][i] then
-                          awful.client.toggletag(tags[client.focus.screen][i])
+                      if client.focus and tags[client.focus.screen][i + 1] then
+                          awful.client.toggletag(tags[client.focus.screen][i + 1])
                       end
                   end))
 end
+
+globalkeys = awful.util.table.join(
+	 globalkeys,
+	 awful.key({ modkey }, "§",
+						 function ()
+								local screen = mouse.screen
+								if tags[screen][i] then
+									 awful.tag.viewonly(tags[screen][1])
+								end
+						 end),
+	 awful.key({ modkey, "Control" }, "§",
+						 function ()
+								local screen = mouse.screen
+								if tags[screen][i] then
+									 awful.tag.viewtoggle(tags[screen][1])
+								end
+						 end),
+	 awful.key({ modkey, "Shift" }, "§",
+						 function ()
+								if client.focus and tags[client.focus.screen][1] then
+									 awful.client.movetotag(tags[client.focus.screen][1])
+								end
+						 end),
+	 awful.key({ modkey, "Control", "Shift" }, "§",
+						 function ()
+								if client.focus and tags[client.focus.screen][1] then
+									 awful.client.toggletag(tags[client.focus.screen][1])
+								end
+						 end))
 
 clientbuttons = awful.util.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),

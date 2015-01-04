@@ -18,10 +18,14 @@
 (require 'company-conf)
 
 ;; Put scroll bar on the right in graphical mode.
-(set-scroll-bar-mode 'right)
+(lambda ()
+  (when (display-graphic-p)
+    (set-scroll-bar-mode 'right)
+    (menu-bar-mode -1)
+    (tool-bar-mode -1)))
+
 ;; Hide the menu- and tool-bar in graphical mode.
-(menu-bar-mode -1)
-(tool-bar-mode -1)
+
 
 ;; Make scrolling by mouse linear
 (setq mouse-wheel-progressive-speed nil)
@@ -102,8 +106,8 @@
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
 ;; Lets try out skewer mode.
-(add-hook 'js2-mode-hook 'skewer-mode)
-(add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'js2-mode-hook  'skewer-mode)
+(add-hook 'css-mode-hook  'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
 ;; make js2-mode the mode for javascript files
@@ -146,6 +150,14 @@
 (setq ace-jump-mode-move-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n ?s))
 (global-set-key (kbd "C-c C-SPC") 'ace-window)
 (global-set-key (kbd "M-SPC") 'ace-jump-mode)
+
+(add-to-list 'auto-mode-alist '("\\.md$" . jekyll-markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.html" . jekyll-html-mode))
+
+;; Make align-regexp use spaces instead of tab characters.
+(defadvice align-regexp (around align-regexp-with-spaces activate)
+  (let ((indent-tabs-mode nil))
+    ad-do-it))
 
 (provide 'init)
 ;;; init.el ends here
