@@ -18,11 +18,9 @@
 (require 'company-conf)
 
 ;; Put scroll bar on the right in graphical mode.
-(lambda ()
-  (when (display-graphic-p)
-    (set-scroll-bar-mode 'right)
-    (menu-bar-mode -1)
-    (tool-bar-mode -1)))
+(set-scroll-bar-mode 'right)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 
 ;; Hide the menu- and tool-bar in graphical mode.
 
