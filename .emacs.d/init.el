@@ -157,5 +157,11 @@
   (let ((indent-tabs-mode nil))
     ad-do-it))
 
+;; Use Python 3 by default
+(setq python-remove-cwd-from-path nil)
+(custom-set-variables
+ '(python-python-command "python3")
+ '(python-shell-interpreter "python3"))
+
 (provide 'init)
 ;;; init.el ends here
