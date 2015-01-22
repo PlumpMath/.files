@@ -18,11 +18,9 @@
 (require 'company-conf)
 
 ;; Put scroll bar on the right in graphical mode.
-(lambda ()
-  (when (display-graphic-p)
-    (set-scroll-bar-mode 'right)
-    (menu-bar-mode -1)
-    (tool-bar-mode -1)))
+(set-scroll-bar-mode 'right)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 
 ;; Hide the menu- and tool-bar in graphical mode.
 
@@ -158,6 +156,12 @@
 (defadvice align-regexp (around align-regexp-with-spaces activate)
   (let ((indent-tabs-mode nil))
     ad-do-it))
+
+;; Use Python 3 by default
+(setq python-remove-cwd-from-path nil)
+(custom-set-variables
+ '(python-python-command "python3")
+ '(python-shell-interpreter "python3"))
 
 (provide 'init)
 ;;; init.el ends here

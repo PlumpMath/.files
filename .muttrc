@@ -1,0 +1,85 @@
+set imap_user        = rovanion.luckey@gmail.com
+set spoolfile        = +INBOX
+mailboxes            = +INBOX
+
+set mbox_type        = Maildir
+
+# Store message headers locally to speed things up.
+# If hcache is a folder, Mutt will create sub cache folders for each account which may speeds things even more up.
+set header_cache     = ~/.cache/mutt
+
+# Store messages locally to speed things up, like searching message bodies.
+# Can be the same folder as header_cache.
+# This will cost important disk usage according to your e-mail amount.
+set message_cachedir = "~/.cache/mutt"
+
+# Specify where to save and/or look for postponed messages.
+set postponed        = +[Gmail]/Drafts
+
+# Allow Mutt to open new imap connection automatically.
+unset imap_passive
+
+# How often to check for new mail (time in seconds).
+set mail_check       = 120
+
+# Sets up mail box in your home folder
+set mbox_type        = maildir
+set mbox             = "~/.cache/mail/inbox/"
+set spoolfile        = "~/.cache/mail/inbox/"
+set folder           = "~/.cache/mail"
+set record           = "~/.cache/mail/sent/"
+set postponed        = "~/.cache/mail/postponed/"
+#Gmail account info
+set from             = "rovanion.luckey@gmail.com"
+set realname         = "Rovanion Luckey"
+set imap_user        = "rovanion.luckey@gmail.com"
+# For password
+source "~/source/mutt-gnome-keyring/mutt-gnome-keyring-password.py rovanion.luckey@gmail.com imap.gmail.com imap"|
+#My Editor
+set editor           = `echo \$EDITOR`
+#Foldermailboxess
+#Remote Folders
+set folder           = "imaps://imap.gmail.com:993"
+set spoolfile        = "+INBOX"
+set postponed        = "+[Gmail]/Utkast"
+#Local Folders
+set header_cache     = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+#SMTP Setup
+set smtp_url         = "smtp://rovanion.luckey@smtp.gmail.com:587/"
+source "~/source/mutt-gnome-keyring/mutt-gnome-keyring-password.py rovanion.luckey@gmail.com smtp.gmail.com smtp"|
+#Special Keybindings
+bind editor <space> noop
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/Alla mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Skickade mail<enter>" "Go to Sent Mail"
+macro index gd "<change-folder>=[Gmail]/Utkast<enter>" "Go to drafts"
+#Mutt Session Security
+set move           = no  #Stop asking to "move read messages to mbox"!
+set imap_keepalive = 300
+# Colors
+color hdrdefault cyan default
+color attachment yellow default
+color header     brightyellow default "From: "
+color header     brightyellow default "Subject: "
+color header     brightyellow default "Date: "
+color quoted     green  default
+color quoted1    cyan   default
+color quoted2    green  default
+color quoted3    cyan   default
+color error      red    default   # error messages
+color message    white  default   # message informational messages
+color indicator  white  red       # indicator for the "current message"
+color status     white  blue      # status lines in the folder index sed for the mini-help line
+color tree       red    default   # the "tree" display of threads within the folder index
+color search     white  blue      # search matches found with search within the internal pager
+color markers    red    default   # The markers indicate a wrapped line
+color index      yellow default '~O'
+color index      yellow default '~N'
+color index      brightred default '~F'  # Flagged Messages are important!
+color index      blue   default  '~D'    # Deleted Mails - use dark color as these are already "dealt with"
+# identifies email addresses
+color body       brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+# identifies URLs
+color body       brightblue black (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
