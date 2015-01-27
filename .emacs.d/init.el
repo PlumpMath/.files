@@ -165,6 +165,6 @@
 
 
 ;; Bind undo to C--
-(global-set-key (kbd "M--") 'undo)
+(global-set-key (kbd "C--") 'undo)
 (provide 'init)
 ;;; init.el ends here
