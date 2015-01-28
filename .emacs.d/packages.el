@@ -15,6 +15,7 @@
 										 go-mode
 										 company-go
 										 ace-window
+										 gitignore-mode
 										 ))
 
 ;; list the repositories containing them
