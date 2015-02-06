@@ -19,8 +19,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -76,7 +76,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alFh'
+alias ll='ls -lFh'
 alias la='ls -Ah'
 alias l='ls -CFh'
 
@@ -101,8 +101,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # I want my visudos and git commits to be in emacs
-export EDITOR="/usr/bin/nano"
-export VISUAL="emacs -nw"
+export EDITOR="emacsclient -nw"
+export VISUAL="emacsclient"
 
 # Fix my constant mistyping.
 alias "atp-get"="apt-get"
@@ -111,8 +111,8 @@ alias "atp-get"="apt-get"
 alias sudo="sudo "
 
 # Console emacs
-alias ew="emacs -nw"
-alias en="emacs -nw"
+alias ew="emacsclient -nw"
+alias en="emacsclient"
 
 # Alias my usual ls command
 alias lh="ls -lhAB"
@@ -139,4 +139,11 @@ XMODIFIERS="emacs"
 export GOPATH=$HOME/source/go
 
 # Assume that we have administrative privileges and also add the gopath.
-export PATH=$PATH:/usr/sbin:$HOME/source/go/bin
+export PATH=$PATH:/usr/sbin:$HOME/source/go/bin:$HOME/.local/bin
+
+# Avoid duplicates
+export HISTCONTROL=ignoredups:erasedups
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+# After each command, append to the history file and reread it
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a;"

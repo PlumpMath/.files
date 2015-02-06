@@ -163,5 +163,8 @@
  '(python-python-command "python3")
  '(python-shell-interpreter "python3"))
 
+
+;; Bind undo to C--
+(global-set-key (kbd "C--") 'undo)
 (provide 'init)
 ;;; init.el ends here
