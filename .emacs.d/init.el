@@ -163,8 +163,14 @@
  '(python-python-command "python3")
  '(python-shell-interpreter "python3"))
 
-
 ;; Bind undo to C--
 (global-set-key (kbd "C--") 'undo)
+
+;; Configure yasnippet
+(yas-global-mode 1)
+
+;; Bind compile to F5
+(global-set-key (kbd "<f5>") 'recompile)
+
 (provide 'init)
 ;;; init.el ends here
