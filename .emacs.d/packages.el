@@ -16,6 +16,7 @@
 										 company-go
 										 ace-window
 										 gitignore-mode
+										 yasnippet
 										 ))
 
 ;; list the repositories containing them
