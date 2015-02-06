@@ -2,7 +2,7 @@ My own config files.
 
 In order to setup run:
 
-$ git clone https://github.com/Rovanion/.files.git
+$ git clone --recursive https://github.com/Rovanion/.files.git
 $ cd .files
 $ ./setup.bash
 
