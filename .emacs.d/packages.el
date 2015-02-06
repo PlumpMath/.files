@@ -15,7 +15,7 @@
 										 go-mode
 										 company-go
 										 ace-window
-										 ))
+										 cmake-mode))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
