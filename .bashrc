@@ -101,8 +101,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # I want my visudos and git commits to be in emacs
-export EDITOR="emacsclient -nw"
-export VISUAL="emacsclient"
+export EDITOR="emacsclient -nw -a=\"\""
+export VISUAL="emacsclient -a=\"\""
 
 # Fix my constant mistyping.
 alias "atp-get"="apt-get"
@@ -111,8 +111,8 @@ alias "atp-get"="apt-get"
 alias sudo="sudo "
 
 # Console emacs
-alias ew="emacsclient -nw"
-alias en="emacsclient"
+alias ew="emacsclient -nw -a=\"\""
+alias en="emacsclient -a=\"\""
 
 # Alias my usual ls command
 alias lh="ls -lhAB"
