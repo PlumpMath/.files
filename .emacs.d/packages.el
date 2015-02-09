@@ -16,6 +16,7 @@
 										 company-go
 										 ace-window
 										 gitignore-mode
+										 cmake-mode
 										 yasnippet
 										 ))
 
