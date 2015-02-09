@@ -16,7 +16,7 @@ if [[ ! $1 == nox ]]; then
 
 
     # Debian dependency list:
-    sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus rxvt-unicode
+    sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus rxvt-unicode python-gnomekeyring
 
     # Select default x tools on debian
     sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
@@ -38,6 +38,7 @@ git config --global user.email "rovanion.luckey@gmail.com"
 git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=3600'
 git config --global push.default simple
+git config --global core.editor 'emacsclient -t -a=\"\"'
 
 # Set emacs as the default editor
 sudo update-alternatives --set editor /usr/bin/emacs24
