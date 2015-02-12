@@ -56,7 +56,7 @@ function newPrompt {
 
   #Are we root? Set the prompt either way.
   if (( $(id -u) == 0 )); then
-    PS1="┌[${debian_chroot:+($debian_chroot)}${red}\u${NC}][\h]${branch:+$branch}$ps1_informer:\[\e[0;32;49m\]\w\[\e[0m \n└$ "
+    PS1="┌[${debian_chroot:+($debian_chroot)}${red}\u${NC}][\h]${branch:+$branch}$ps1_informer:\[\e[0;32;49m\]\w\[\e[0m \n└# "
   else
     PS1="┌[${debian_chroot:+($debian_chroot)}${green}\u${NC}][\h]${branch:+$branch}$ps1_informer:\[\e[0;32;49m\]\w\[\e[0m \n└$ "
   fi
@@ -123,12 +123,6 @@ alias gc="git commit -v"
 # Shorthand for upgrading debian/ubuntu
 alias upg="sudo apt-get update && sudo apt-get dist-upgrade"
 
-if [[ -z "$PROMPT_COMMAND" ]]; then
-    PROMPT_COMMAND=newPrompt
-else
-    PROMPT_COMMAND="$PROMPT_COMMAND ; newPrompt"
-fi
-
 # The nodejs cli is named nodejs on Debian of name collision reasons, though everyone expects it to be named node.
 alias node=nodejs
 
@@ -146,4 +140,4 @@ export HISTCONTROL=ignoredups:erasedups
 # When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
 # After each command, append to the history file and reread it
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a;"
+export PROMPT_COMMAND="history -a;"
