@@ -17,10 +17,13 @@
 ;; Load auto complete configuration.
 (require 'company-conf)
 
-;; Put scroll bar on the right in graphical mode.
-(set-scroll-bar-mode 'right)
-(menu-bar-mode -1)
-(tool-bar-mode -1)
+;; Put scroll bar on the right in graphical mode, also remove toolbars.
+(defun graphical-fixes (dummy)
+		(set-scroll-bar-mode 'right)
+		(menu-bar-mode -1)
+		(tool-bar-mode -1))
+(add-to-list 'after-make-frame-functions #'graphical-fixes)
+
 
 ;; Hide the menu- and tool-bar in graphical mode.
 
