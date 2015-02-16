@@ -140,4 +140,4 @@ export HISTCONTROL=ignoredups:erasedups
 # When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
 # After each command, append to the history file and reread it
-export PROMPT_COMMAND="history -a;"
+export PROMPT_COMMAND="newPrompt; history -a;"
