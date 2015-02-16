@@ -11,7 +11,7 @@ require("naughty")
 require("debian.menu")
 
 -- Load scratchpad
-local scratch = require("scratch")
+
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
