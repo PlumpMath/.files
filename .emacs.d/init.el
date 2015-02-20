@@ -121,11 +121,16 @@
 ;; And normal spell checking for latex documents
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
-;; Fix bug in terminal flycheck with company-mode
+;; Fix bug in terminal flycheck with company-mode.
 (add-hook 'flycheck-mode-hook
           (lambda ()
             (when (display-graphic-p)
               (setq-local flycheck-indication-mode nil))))
+;; We're writing C++11, and we want want flycheck on by default.
+(add-hook 'c++-mode-hook
+					(lambda ()
+						(setq flycheck-clang-language-standard "c++11")
+						(flycheck-mode)))
 
 ;; Don't litter the fs with temporary files but put them in a central folder.
 (setq
@@ -174,6 +179,12 @@
 
 ;; Bind compile to F5
 (global-set-key (kbd "<f5>") 'recompile)
+
+;; Auto wrap comments
+(require 'newcomment)
+(setq fill-column 66)
+(setq comment-auto-fill-only-comments t)
+(auto-fill-mode t)
 
 (provide 'init)
 ;;; init.el ends here
