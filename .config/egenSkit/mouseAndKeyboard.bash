@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Setting up scrolling on laptop
-if synclient >/dev/null; then
+if synclient &>/dev/null; then
   synclient HorizTwoFingerScroll=1
   synclient HorizScrollDelta=250
   synclient PalmDetect=1
