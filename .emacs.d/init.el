@@ -35,12 +35,14 @@
 
 ;; Indentation galore!
 (setq-default tab-width 2
+							indent-tabs-mode t
 							js-indent-level tab-width
 							js2-basic-offset tab-width
 							sh-basic-offset tab-width
 							sh-indentation tab-width
 							sgml-basic-offset tab-width
-							python-indent tab-width)
+							python-indent tab-width
+							web-mode-markup-indent-offset tab-width)
 
 ;; Color paranthesis in all the colors of the rainbow!
 ;; Requires the fallowing plugin http://www.emacswiki.org/emacs/RainbowDelimiters
@@ -185,6 +187,9 @@
 (setq fill-column 66)
 (setq comment-auto-fill-only-comments t)
 (auto-fill-mode t)
+
+;; Use diff-mode in commit messages.
+(add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 
 (provide 'init)
 ;;; init.el ends here
