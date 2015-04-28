@@ -23,6 +23,7 @@ key.suspendKey           = "<f2>";
 
 // ================================= Hooks ================================= //
 
+
 hook.setHook('KeyBoardQuit', function (aEvent) {
     if (key.currentKeySequence.length) return;
 
@@ -47,6 +48,7 @@ hook.setHook('KeyBoardQuit', function (aEvent) {
         key.generateKey(aEvent.originalTarget, KeyEvent.DOM_VK_ESCAPE, true);
     }
 });
+
 
 // ============================= Key bindings ============================== //
 
@@ -78,7 +80,7 @@ key.setGlobalKey(['C-x', '1'], function (ev) {
                 window.loadURI(ev.target.ownerDocument.location.href);
             }, 'Show current frame only', true);
 
-key.setGlobalKey(['C-x', 'l'], function (ev) {
+key.setGlobalKey('C-l', function (ev) {
                 command.focusToById("urlbar");
             }, 'Focus to the location bar', true);
 
@@ -162,7 +164,11 @@ key.setViewKey([['C-p'], ['k']], function (ev) {
                 key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_UP, true);
             }, 'Scroll line up');
 
-key.setViewKey([[''], [',']], function (ev) {
+key.setViewKey([[''], ['M-<']], function (ev) {
+                goDoCommand("cmd_scrollTop");
+            }, 'Scroll to the top of the page', true);
+
+key.setViewKey(',', function (ev) {
                 key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_LEFT, true);
             }, 'Scroll left');
 
@@ -177,10 +183,6 @@ key.setViewKey([['M-v'], ['b']], function (ev) {
 key.setViewKey('C-v', function (ev) {
                 goDoCommand("cmd_scrollPageDown");
             }, 'Scroll page down');
-
-key.setViewKey([['M-<'], ['']], function (ev) {
-                goDoCommand("cmd_scrollTop");
-            }, 'Scroll to the top of the page', true);
 
 key.setViewKey([['M->'], ['G']], function (ev) {
                 goDoCommand("cmd_scrollBottom");
