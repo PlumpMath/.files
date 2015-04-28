@@ -18,7 +18,8 @@
 										 gitignore-mode
 										 cmake-mode
 										 yasnippet
-										 web-mode))
+										 web-mode
+										 glsl-mode))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")

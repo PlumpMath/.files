@@ -16,7 +16,7 @@ if [[ ! $1 == nox ]]; then
 
 
     # Debian dependency list:
-    sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus rxvt-unicode python-gnomekeyring volumeicon nm-applet xscreensaver
+    sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus rxvt-unicode python-gnomekeyring volumeicon-alsa nm-applet xscreensaver file-roller
 
     # Select default x tools on debian
     sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
