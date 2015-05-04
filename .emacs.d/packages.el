@@ -15,11 +15,13 @@
 										 go-mode
 										 company-go
 										 ace-window
+										 ace-isearch
 										 gitignore-mode
 										 cmake-mode
 										 yasnippet
 										 web-mode
-										 glsl-mode))
+										 glsl-mode
+										 ))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
