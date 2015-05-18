@@ -35,12 +35,14 @@
 
 ;; Indentation galore!
 (setq-default tab-width 2
+							indent-tabs-mode t
 							js-indent-level tab-width
 							js2-basic-offset tab-width
 							sh-basic-offset tab-width
 							sh-indentation tab-width
 							sgml-basic-offset tab-width
-							python-indent tab-width)
+							python-indent tab-width
+							web-mode-markup-indent-offset tab-width)
 
 ;; Color paranthesis in all the colors of the rainbow!
 ;; Requires the fallowing plugin http://www.emacswiki.org/emacs/RainbowDelimiters
@@ -121,11 +123,16 @@
 ;; And normal spell checking for latex documents
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
-;; Fix bug in terminal flycheck with company-mode
+;; Fix bug in terminal flycheck with company-mode.
 (add-hook 'flycheck-mode-hook
           (lambda ()
             (when (display-graphic-p)
               (setq-local flycheck-indication-mode nil))))
+;; We're writing C++11, and we want want flycheck on by default.
+(add-hook 'c++-mode-hook
+					(lambda ()
+						(setq flycheck-clang-language-standard "c++11")
+						(flycheck-mode)))
 
 ;; Don't litter the fs with temporary files but put them in a central folder.
 (setq
@@ -152,6 +159,11 @@
 (global-set-key (kbd "C-c C-SPC") 'ace-window)
 (global-set-key (kbd "M-SPC") 'ace-jump-mode)
 
+;; Use Ace-isearch
+(require 'ace-isearch)
+(global-ace-isearch-mode +1)
+(setq ace-isearch-input-idle-jump-delay 0.2)
+
 (add-to-list 'auto-mode-alist '("\\.md$" . jekyll-markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.html" . jekyll-html-mode))
 
@@ -174,6 +186,15 @@
 
 ;; Bind compile to F5
 (global-set-key (kbd "<f5>") 'recompile)
+
+;; Auto wrap comments
+(require 'newcomment)
+(setq fill-column 66)
+(setq comment-auto-fill-only-comments t)
+(auto-fill-mode t)
+
+;; Use diff-mode in commit messages.
+(add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 
 (provide 'init)
 ;;; init.el ends here
