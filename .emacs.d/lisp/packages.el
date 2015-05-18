@@ -22,6 +22,7 @@
 										 puppet-mode
 										 web-mode
 										 rainbow-delimiters
+										 nginx-mode
 										 ))
 
 ;; list the repositories containing them
