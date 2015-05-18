@@ -45,9 +45,15 @@
 							web-mode-markup-indent-offset tab-width)
 
 ;; Color paranthesis in all the colors of the rainbow!
-;; Requires the fallowing plugin http://www.emacswiki.org/emacs/RainbowDelimiters
 (require 'rainbow-delimiters)
-(global-rainbow-delimiters-mode 1)
+(add-hook 'c++-mode-hook #'rainbow-delimiters-mode)
+(add-hook	'c-mode-hook #'rainbow-delimiters-mode)
+(add-hook	'python-mode-hook #'rainbow-delimiters-mode)
+(add-hook	'js2-mode-hook #'rainbow-delimiters-mode)
+(add-hook	'lisp-mode-hook #'rainbow-delimiters-mode)
+(add-hook	'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+(add-hook	'go-mode-hook #'rainbow-delimiters-mode)
+(add-hook	'octave-mode-hook #'rainbow-delimiters-mode)
 
 ;; And then highlight the parenthesis.
 (show-paren-mode 1)
