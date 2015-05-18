@@ -21,6 +21,7 @@
 										 glsl-mode
 										 puppet-mode
 										 web-mode
+										 rainbow-delimiters
 										 ))
 
 ;; list the repositories containing them

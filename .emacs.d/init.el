@@ -10,7 +10,7 @@
 
 ;;; Code:
 ;; Load files from here.
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 ;; Automatically download packages requiered for this conf.
 (require 'packages)
 
