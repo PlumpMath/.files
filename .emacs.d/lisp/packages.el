@@ -15,12 +15,14 @@
 										 go-mode
 										 company-go
 										 ace-window
-										 ace-isearch
 										 gitignore-mode
 										 cmake-mode
 										 yasnippet
-										 web-mode
 										 glsl-mode
+										 puppet-mode
+										 web-mode
+										 rainbow-delimiters
+										 nginx-mode
 										 ))
 
 ;; list the repositories containing them
