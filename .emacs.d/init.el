@@ -159,11 +159,6 @@
 (global-set-key (kbd "C-c C-SPC") 'ace-window)
 (global-set-key (kbd "M-SPC") 'ace-jump-mode)
 
-;; Use Ace-isearch
-(require 'ace-isearch)
-(global-ace-isearch-mode +1)
-(setq ace-isearch-input-idle-jump-delay 0.2)
-
 (add-to-list 'auto-mode-alist '("\\.md$" . jekyll-markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.html" . jekyll-html-mode))
 
@@ -195,6 +190,8 @@
 
 ;; Use diff-mode in commit messages.
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
+
+(setq delete-by-moving-to-trash t)
 
 (provide 'init)
 ;;; init.el ends here
