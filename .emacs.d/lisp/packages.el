@@ -23,6 +23,8 @@
 										 web-mode
 										 rainbow-delimiters
 										 nginx-mode
+										 dired+
+										 lua-mode
 										 ))
 
 ;; list the repositories containing them
