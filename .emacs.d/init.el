@@ -197,7 +197,11 @@
 ;; Use diff-mode in commit messages.
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 
-(setq delete-by-moving-to-trash t)
+(require 'dired-conf)
+
+;; Troll coworkers - use Emacs at work for csharp!
+(add-hook 'csharp-mode-hook 'omnisharp-mode)
+(setq omnisharp-server-executable-path '~/source/OmniSharp/OmniSharp/bin/Debug/OmniSharp.exe)
 
 (provide 'init)
 ;;; init.el ends here
