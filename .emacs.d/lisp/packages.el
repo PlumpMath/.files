@@ -25,7 +25,7 @@
                      nginx-mode
                      dired+
                      lua-mode
-                     omnisharp-mode
+                     omnisharp
                      ))
 
 ;; list the repositories containing them
