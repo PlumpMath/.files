@@ -19,9 +19,10 @@
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (dummy)
+	(menu-bar-mode -1)
+	(when (boundp 'set-scroll-bar-mode)
 		(set-scroll-bar-mode 'right)
-		(menu-bar-mode -1)
-		(tool-bar-mode -1))
+		(tool-bar-mode -1)))
 (add-to-list 'after-make-frame-functions #'graphical-fixes)
 
 
@@ -196,6 +197,19 @@
 
 ;; Use diff-mode in commit messages.
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
+
+(require 'dired-conf)
+
+;; Troll coworkers - use Emacs at work for csharp!
+(add-hook 'csharp-mode-hook 'omnisharp-mode)
+(setq omnisharp-server-executable-path '~/source/OmniSharp/OmniSharp/bin/Debug/OmniSharp.exe)
+
+(require 'visual-regexp)
+(define-key global-map (kbd "C-c r") 'vr/replace)
+(define-key global-map (kbd "M-%") 'vr/replace)
+(define-key global-map (kbd "C-c q") 'vr/query-replace)
+;; if you use multiple-cursors, this is for you:
+(define-key global-map (kbd "C-c m") 'vr/mc-mark)
 
 (provide 'init)
 ;;; init.el ends here
