@@ -99,8 +99,8 @@ URxvt*font:                           	-*-terminus-medium-r-*-*-*-140-*-*-*-*-*
 ! URxvt*modifier:                       modifier
 ! URxvt*cutchars:                       string
 ! URxvt*answerbackString:               string
-! URxvt*secondaryScreen:                boolean
-! URxvt*secondaryScroll:                boolean
+URxvt*secondaryScreen:                1
+URxvt*secondaryScroll:                0
 ! URxvt*perl-lib:                       string
 ! URxvt*perl-eval:                      perl-eval
 URxvt*perl-ext-common:                default,matcher
