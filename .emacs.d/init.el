@@ -208,8 +208,11 @@
 (define-key global-map (kbd "C-c r") 'vr/replace)
 (define-key global-map (kbd "M-%") 'vr/replace)
 (define-key global-map (kbd "C-c q") 'vr/query-replace)
-;; if you use multiple-cursors, this is for you:
+;; If you use multiple-cursors, this is for you:
 (define-key global-map (kbd "C-c m") 'vr/mc-mark)
+
+;; Use nginx-mode when browsing the nginx cofig folder
+(add-to-list 'auto-mode-alist '("\\`/etc/nginx/" . nginx-mode))
 
 (provide 'init)
 ;;; init.el ends here
