@@ -43,7 +43,8 @@
 							sh-indentation tab-width
 							sgml-basic-offset tab-width
 							python-indent tab-width
-							web-mode-markup-indent-offset tab-width)
+							web-mode-markup-indent-offset tab-width
+							nginx-indent-level tab-width)
 
 ;; Color paranthesis in all the colors of the rainbow!
 (require 'rainbow-delimiters)
@@ -213,6 +214,7 @@
 
 ;; Use nginx-mode when browsing the nginx cofig folder
 (add-to-list 'auto-mode-alist '("\\`/etc/nginx/" . nginx-mode))
+(setq 'nginx-indent-tabs-mode t)
 
 (provide 'init)
 ;;; init.el ends here
