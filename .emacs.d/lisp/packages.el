@@ -27,6 +27,7 @@
                      lua-mode
                      omnisharp
                      yaml-mode
+										 visual-regexp
 										 ))
 
 ;; list the repositories containing them
