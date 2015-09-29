@@ -80,10 +80,6 @@ key.setGlobalKey(['C-x', '1'], function (ev) {
                 window.loadURI(ev.target.ownerDocument.location.href);
             }, 'Show current frame only', true);
 
-key.setGlobalKey('C-l', function (ev) {
-                command.focusToById("urlbar");
-            }, 'Focus to the location bar', true);
-
 key.setGlobalKey(['C-x', 'g'], function (ev) {
                 command.focusToById("searchbar");
             }, 'Focus to the search bar', true);
@@ -124,6 +120,10 @@ key.setGlobalKey(['C-x', 'C-s'], function (ev) {
                 saveDocument(window.content.document);
             }, 'Save current page to the file', true);
 
+key.setGlobalKey('C-l', function (ev) {
+                command.focusToById("urlbar");
+            }, 'Focus to the location bar', true);
+
 key.setGlobalKey('M-w', function (ev) {
                 command.copyRegion(ev);
             }, 'Copy selected text', true);
@@ -156,11 +156,11 @@ key.setGlobalKey('C-b', function (ev) {
                 getBrowser().mTabContainer.advanceSelectedTab(-1, true);
             }, 'Select previous tab');
 
-key.setViewKey([['C-n'], ['j']], function (ev) {
+key.setViewKey('C-n', function (ev) {
                 key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_DOWN, true);
             }, 'Scroll line down');
 
-key.setViewKey([['C-p'], ['k']], function (ev) {
+key.setViewKey('C-p', function (ev) {
                 key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_UP, true);
             }, 'Scroll line up');
 
@@ -187,14 +187,6 @@ key.setViewKey('C-v', function (ev) {
 key.setViewKey([['M->'], ['G']], function (ev) {
                 goDoCommand("cmd_scrollBottom");
             }, 'Scroll to the bottom of the page', true);
-
-key.setViewKey('l', function (ev) {
-                getBrowser().mTabContainer.advanceSelectedTab(1, true);
-            }, 'Select next tab');
-
-key.setViewKey('h', function (ev) {
-                getBrowser().mTabContainer.advanceSelectedTab(-1, true);
-            }, 'Select previous tab');
 
 key.setViewKey(':', function (ev, arg) {
                 shell.input(null, arg);
@@ -361,9 +353,9 @@ key.setEditKey('C-M-y', function (ev) {
                 if (!command.kill.ring.length)
                     return;
 
-                let (ct = command.getClipboardText())
+                let (ct = command.getClipboardText()) {
                     (!command.kill.ring.length || ct != command.kill.ring[0]) && command.pushKillRing(ct);
-
+										}
                 prompt.selector(
                     {
                         message: "Paste:",
