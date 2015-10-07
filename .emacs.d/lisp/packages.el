@@ -28,6 +28,8 @@
                      omnisharp
                      yaml-mode
 										 visual-regexp
+										 markdown-mode
+										 markdown-toc
 										 ))
 
 ;; list the repositories containing them
