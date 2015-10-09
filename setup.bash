@@ -16,7 +16,13 @@ if [[ ! $1 == nox ]]; then
 
 
     # Debian dependency list:
-    sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus rxvt-unicode python-gnomekeyring volumeicon-alsa nm-applet xscreensaver file-roller
+    sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus rxvt-unicode python-gnomekeyring volumeicon-alsa nm-applet xscreensaver file-roller keepassx
+    
+    if lsb_release -i | grep -q Ubuntu; then
+	sudo apt-get install ubuntu-restricted-extras
+    else
+	sudo apt-get install gstreamer0.10-plugins-good gstreamer0.10-plugins-bad gstreamer1.0-plugins-ugly
+    fi
 
     # Select default x tools on debian
     sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
