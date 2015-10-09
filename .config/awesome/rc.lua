@@ -245,7 +245,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "f", function () awful.util.spawn("firefox") end),
     awful.key({ modkey, "Shift"   }, "t", function () awful.util.spawn("thunar") end),
     awful.key({ modkey, "Shift"   }, "n", function () awful.util.spawn("nautilus") end),
-    awful.key({ modkey, "Shift"   }, "odiaeresis", function () awful.util.spawn("emacsclient -c") end),
+    awful.key({ modkey, "Shift"   }, "odiaeresis", function () awful.util.spawn("evince") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
 
