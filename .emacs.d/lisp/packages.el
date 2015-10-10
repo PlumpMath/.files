@@ -27,10 +27,11 @@
                      lua-mode
                      omnisharp
                      yaml-mode
-										 visual-regexp
-										 markdown-mode
-										 markdown-toc
-										 ))
+                     visual-regexp
+                     markdown-mode
+                     markdown-toc
+                     recompile-on-save
+                     ))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
