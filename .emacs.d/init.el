@@ -14,12 +14,11 @@
 
 ;; Automatically download packages requiered for this conf.
 (require 'packages)
-
 ;; Load auto complete configuration.
 (require 'company-conf)
-
-;; Load configuration regarding python.
+;; Load language conf's
 (require 'python-conf)
+(require 'go-conf)
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (dummy)
@@ -146,9 +145,6 @@
 (global-set-key (kbd "M-p") 'iy-go-to-char-backward)
 (setq iy-go-to-char-key-forward '¨)
 (setq iy-go-to-char-key-backward '^)
-
-;; Load my custom settings for golang
-(add-hook 'before-save-hook 'gofmt-before-save)
 
 ;; Set up ace-window
 (setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s))
