@@ -31,6 +31,7 @@
                      markdown-mode
                      markdown-toc
                      recompile-on-save
+                     jedi
                      ))
 
 ;; list the repositories containing them
