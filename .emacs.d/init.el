@@ -11,11 +11,15 @@
 ;;; Code:
 ;; Load files from here.
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+
 ;; Automatically download packages requiered for this conf.
 (require 'packages)
 
 ;; Load auto complete configuration.
 (require 'company-conf)
+
+;; Load configuration regarding python.
+(require 'python-conf)
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (dummy)
@@ -79,23 +83,8 @@
 ;; Surpress emacs init screen
 (setq inhibit-startup-screen t)
 
-
-(custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(safe-local-variable-values (quote ((eval compile-on-save-mode)))))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
-
-;; Provides the minor mode which runs the compile comand on save
-(require 'compile-on-save)
-(add-hook 'LaTeX-mode-hook 'compile-on-save-mode)
+;; Provides the minor mode which runs the compile comand on save.
+(add-hook 'LaTeX-mode-hook 'recompile-on-save-mode)
 
 ;; Remove trailing whitespaces before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -175,12 +164,6 @@
   (let ((indent-tabs-mode nil))
     ad-do-it))
 
-;; Use Python 3 by default
-(setq python-remove-cwd-from-path nil)
-(custom-set-variables
- '(python-python-command "python3")
- '(python-shell-interpreter "python3"))
-
 ;; Bind undo to C--
 (global-set-key (kbd "C--") 'undo)
 
@@ -207,7 +190,7 @@
 
 (require 'visual-regexp)
 (define-key global-map (kbd "C-c r") 'vr/replace)
-(define-key global-map (kbd "M-%") 'vr/replace)
+(define-key global-map (kbd "M-%") 'vr/query-replace)
 (define-key global-map (kbd "C-c q") 'vr/query-replace)
 ;; If you use multiple-cursors, this is for you:
 (define-key global-map (kbd "C-c m") 'vr/mc-mark)
