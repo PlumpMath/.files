@@ -16,8 +16,8 @@ if [[ ! $1 == nox ]]; then
 
 
     # Debian dependency list:
-    sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus rxvt-unicode python-gnomekeyring volumeicon-alsa nm-applet xscreensaver file-roller keepassx
-    
+    sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus rxvt-unicode python-gnomekeyring volumeicon-alsa nm-applet xscreensaver file-roller keepassx mu4e maildir-utils
+
     if lsb_release -i | grep -q Ubuntu; then
 	sudo apt-get install ubuntu-restricted-extras
     else
