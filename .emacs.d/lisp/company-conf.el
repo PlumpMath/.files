@@ -4,7 +4,7 @@
 
 (setq company-tooltip-limit 20)
 (setq company-idle-delay 0)
-(setq company-minimum-prefix-length 3)
+(setq company-minimum-prefix-length 2)
 
 ;; Trigger company-mode.
 (add-hook 'c++-mode-hook        'company-mode)
@@ -23,9 +23,12 @@
 
 ;; Only use company-go in go-mode
 (add-hook 'go-mode-hook (lambda ()
-                          (set (make-local-variable 'company-backends) '(company-go))
-                          (company-mode)))
+  (set (make-local-variable 'company-backends) '(company-go))
+    (company-mode)))
 
 (require 'company-go)
+
+(eval-after-load 'company
+	'(add-to-list 'company-backends 'company-omnisharp))
 
 (provide 'company-conf)
