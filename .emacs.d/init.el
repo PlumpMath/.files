@@ -16,9 +16,14 @@
 (require 'packages)
 ;; Load auto complete configuration.
 (require 'company-conf)
-;; Load language conf's
+;; Load language specific configurations.
 (require 'python-conf)
 (require 'go-conf)
+(require 'nginx-conf)
+;; Load conf for mail client.
+(require 'mu4e-conf)
+;; Conf for directory listing mode.
+(require 'dired-conf)
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (dummy)
@@ -47,7 +52,8 @@
 							sgml-basic-offset tab-width
 							python-indent tab-width
 							web-mode-markup-indent-offset tab-width
-							nginx-indent-level tab-width)
+							nginx-indent-level tab-width
+							)
 
 ;; Color paranthesis in all the colors of the rainbow!
 (require 'rainbow-delimiters)
@@ -178,8 +184,6 @@
 ;; Use diff-mode in commit messages.
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 
-(require 'dired-conf)
-
 ;; Troll coworkers - use Emacs at work for csharp!
 (add-hook 'csharp-mode-hook 'omnisharp-mode)
 (setq omnisharp-server-executable-path '~/source/OmniSharp/OmniSharp/bin/Debug/OmniSharp.exe)
@@ -191,9 +195,6 @@
 ;; If you use multiple-cursors, this is for you:
 (define-key global-map (kbd "C-c m") 'vr/mc-mark)
 
-;; Use nginx-mode when browsing the nginx cofig folder
-(add-to-list 'auto-mode-alist '("\\`/etc/nginx/" . nginx-mode))
-(setq 'nginx-indent-tabs-mode t)
 
 (provide 'init)
 ;;; init.el ends here
