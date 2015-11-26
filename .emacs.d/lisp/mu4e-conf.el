@@ -9,15 +9,15 @@
 
 (require 'mu4e)
 (setq mu4e-maildir (expand-file-name "~/.cache/mail/gmail"))
-(setq mu4e-drafts-folder "/[Gmail].Utkast")
-(setq mu4e-sent-folder   "/[Gmail].Skickat")
-(setq mu4e-trash-folder  "/[Gmail].Papperskorgen")
+(setq mu4e-drafts-folder "/[Gmail]/.Utkast")
+(setq mu4e-sent-folder   "/Sent")
+(setq mu4e-trash-folder  "/[Gmail]/.Papperskorgen")
 
 (setq mu4e-maildir-shortcuts
-      '( ("Inbox"            . ?i)
-         ("/[Gmail]/.Skickat" . ?s)
-         ("/[Gmail]/Papperskorgen"   . ?t)
-         ("/[Gmail]/.Utkast"  . ?d)))
+      '( ("Inbox"                  . ?i)
+         ("/Sent"                  . ?s)
+         ("/[Gmail]/Papperskorgen" . ?t)
+         ("/[Gmail]/.Utkast"       . ?d)))
 
 
 (setq mu4e-show-images t)

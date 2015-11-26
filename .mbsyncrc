@@ -18,10 +18,7 @@ Inbox ~/.cache/mail/gmail/Inbox
 Channel gmail
 Master :gmail-remote:
 Slave :gmail-local:
-# Exclude everything under the internal [Gmail] folder, except the interesting folders
-#Patterns * ![Gmail]* "[Gmail]/Skickat" "[Gmail]/Utkast" "[Gmail]/Inkorgen"
-# Or include everything
-Patterns *
+Patterns INBOX Sent "[Gmail]/Utkast" "[Gmail]/Papperskorgen"
 # Automatically create missing mailboxes, both locally and on the server
 Create Both
 # Save the synchronization state files in the relevant directory
