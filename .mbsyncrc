@@ -1,0 +1,28 @@
+IMAPAccount gmail
+Host imap.gmail.com
+User rovanion.luckey@gmail.com
+# Added to gnome keyring using secret-tool store --label='GMail' address rovanion.luckey@gmail.com
+PassCmd "secret-tool lookup address rovanion.luckey@gmail.com"
+Port 993
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+UseIMAPS yes
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+# The trailing "/" is important
+Path ~/.cache/mail/gmail/
+Inbox ~/.cache/mail/gmail/Inbox
+
+Channel gmail
+Master :gmail-remote:
+Slave :gmail-local:
+# Exclude everything under the internal [Gmail] folder, except the interesting folders
+#Patterns * ![Gmail]* "[Gmail]/Skickat" "[Gmail]/Utkast" "[Gmail]/Inkorgen"
+# Or include everything
+Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Save the synchronization state files in the relevant directory
+SyncState *
