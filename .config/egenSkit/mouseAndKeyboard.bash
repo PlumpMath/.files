@@ -14,9 +14,9 @@ if synclient &>/dev/null; then
 	# Touch point acceleration profile
 	xinput set-prop $deviceNumber 251 6
 	# Touch point pointer inertia
-	xinput set-prop $deviceNumber 252 0.6
+	xinput set-prop $deviceNumber 252 0.5
 	# Touch point pointer accelation
-	xinput set-prop $deviceNumber 254 3
+	xinput set-prop $deviceNumber 254 10
 fi
 # Set the keymap and set caps to be a windows key.
 setxkbmap qq dvorak
