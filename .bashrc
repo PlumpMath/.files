@@ -134,6 +134,8 @@ alias agu='sudo apt-get update'
 alias acs='apt-cache search'
 alias afs='apt-file search'
 
+alias mu4e="mu index --maildir=~/.cache/mail/; ew -e '(mu4e)'"
+
 # Fixing not being able to type dead keys in emacs
 XMODIFIERS="emacs"
 
