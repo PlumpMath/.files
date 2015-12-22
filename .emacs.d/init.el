@@ -196,5 +196,18 @@
 (define-key global-map (kbd "C-c m") 'vr/mc-mark)
 
 
+(require 'moz)
+(autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
+
+(defun auto-reload-firefox-on-after-save-hook ()
+	(add-hook 'after-save-hook
+						'(lambda ()
+							 (interactive)
+							 (comint-send-string (inferior-moz-process)
+																	 "setTimeout(BrowserReload, \"100\");"))
+						'append 'local)) ; buffer-local
+
+
+(add-hook 'toml-mode-hook 'auto-reload-firefox-on-after-save-hook)
 (provide 'init)
 ;;; init.el ends here
