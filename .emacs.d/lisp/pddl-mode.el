@@ -3,7 +3,7 @@
 ;; Copyright (C) 2005 Surendra K Singhi
 
 ;; Authors: 2005      Surendra K Singhi <surendra@asu.edu>
-;; Keywords: PDDL Planning files 
+;; Keywords: PDDL Planning files
 ;; Version: 0.100
 ;; URL: http://www.public.asu.edu/~sksinghi/PDDL-mode.htm
 
@@ -34,10 +34,10 @@
 ;;list all the actions and the problems in the current file.
 ;;
 ;;
-;; This mode supports full PDDL 2.2 
+;; This mode supports full PDDL 2.2
 ;;
 ;; Installation:
-;; 
+;;
 ;; Put in your ~/.emacs:
 ;;      (add-to-list 'load-path "/lib/emacs/PDDL-mode")
 ;;      (require 'PDDL-mode)
@@ -49,7 +49,7 @@
 ;; Special thanks also goes to Stefan Monnier <monnier@iro.umontreal.ca> for
 ;; helping me with various parts of the code
 ;; If you have any problems or suggestions or patches specific to the mode
-;;please contact the author via email.  
+;;please contact the author via email.
 ;;
 ;;
 
@@ -112,7 +112,7 @@
 				    ":timed-initial-literals") t)
 		      'font-lock-constant-face)))
     "Additional Keywords to highlight in PDDL mode")
-		       
+
 (defvar PDDL-font-lock-keywords PDDL-font-lock-keywords-3
   "Default highlighting expressions for PDDL mode is maximum.")
 
@@ -153,7 +153,7 @@
 
 (defvar PDDL-mode-imenu-syntax-alist '(("_-" . "w")))
 
-(defvar PDDL-mode-all-completions 
+(defvar PDDL-mode-all-completions
   '(":strips" ":typing" ":equality" ":adl" ":negative-preconditions" ":durative-actions"
    ":disjunctive-preconditiorns" ":fluents" ":existential-preconditions" ":derived-predicates"
    ":universal-preconditions" ":timed-initial-literals" "define" "and" "or" "not" "problem"
