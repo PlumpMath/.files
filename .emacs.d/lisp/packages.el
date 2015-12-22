@@ -32,6 +32,7 @@
                      markdown-toc
                      recompile-on-save
                      jedi
+										 toml-mode
                      ))
 
 ;; list the repositories containing them
