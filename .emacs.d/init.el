@@ -209,5 +209,9 @@
 
 
 (add-hook 'toml-mode-hook 'auto-reload-firefox-on-after-save-hook)
+
+(setenv "PATH" (concat (getenv "PATH") ":~/.local/bin"))
+(setq exec-path (append exec-path '("~/.local/bin")))
+
 (provide 'init)
 ;;; init.el ends here
