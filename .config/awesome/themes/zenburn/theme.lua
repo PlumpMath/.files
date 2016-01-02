@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "awsetbg /home/rovanion/Dropbox/Photos/Backgrounds/andromeda.png" }
+theme.wallpaper_cmd = { "awsetbg /home/rovanion/Dropbox/Photos/Backgrounds/blabar.jpg" }
 -- }}}
 
 -- {{{ Styles
