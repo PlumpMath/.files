@@ -45,7 +45,7 @@ function newPrompt {
   # Look for Git status
   if result=$(git diff-files 2>/dev/null) ; then
     branch=$(git branch --color=never | sed -ne 's/* //p')
-    if echo $result | grep -q M ; then
+    if [[ $result != ""]]; then
       branch=[$red$branch$NC]
     else
       branch=[$blue$branch$NC]
