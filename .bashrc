@@ -13,7 +13,7 @@ NC='\e[0m'
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth:erasedups
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -45,7 +45,7 @@ function newPrompt {
   # Look for Git status
   if result=$(git diff-files 2>/dev/null) ; then
     branch=$(git branch --color=never | sed -ne 's/* //p')
-    if echo $result | grep -q M ; then
+    if [[ $result != "" ]]; then
       branch=[$red$branch$NC]
     else
       branch=[$blue$branch$NC]
