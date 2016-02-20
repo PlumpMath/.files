@@ -4,15 +4,6 @@ mailboxes            = +INBOX
 
 set mbox_type        = Maildir
 
-# Store message headers locally to speed things up.
-# If hcache is a folder, Mutt will create sub cache folders for each account which may speeds things even more up.
-set header_cache     = ~/.cache/mutt
-
-# Store messages locally to speed things up, like searching message bodies.
-# Can be the same folder as header_cache.
-# This will cost important disk usage according to your e-mail amount.
-set message_cachedir = "~/.cache/mutt"
-
 # Specify where to save and/or look for postponed messages.
 set postponed        = +[Gmail]/Drafts
 
@@ -43,9 +34,9 @@ set folder           = "imaps://imap.gmail.com:993"
 set spoolfile        = "+INBOX"
 set postponed        = "+[Gmail]/Utkast"
 #Local Folders
-set header_cache     = ~/.mutt/cache/headers
-set message_cachedir = ~/.mutt/cache/bodies
-set certificate_file = ~/.mutt/certificates
+set header_cache     = "~/.cache/mutt/header-cache"
+set message_cachedir = "~/.cache/mutt/bodie-cache"
+set certificate_file = "~/.cache/mutt/certificates"
 #SMTP Setup
 set smtp_url         = "smtp://rovanion.luckey@smtp.gmail.com:587/"
 source "~/source/mutt-gnome-keyring/mutt-gnome-keyring-password.py rovanion.luckey@gmail.com smtp.gmail.com smtp"|
@@ -83,3 +74,5 @@ color index      blue   default  '~D'    # Deleted Mails - use dark color as the
 color body       brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
 # identifies URLs
 color body       brightblue black (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+# Don't display messages for longer than needed
+set sleep_time=0
