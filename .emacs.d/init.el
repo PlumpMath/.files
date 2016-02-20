@@ -94,6 +94,7 @@
 ;; Remove trailing whitespaces before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+
 ;; Code which tries to make *compile* on errorcodes != 0
 (require 'only-display-compile-on-error)
 
@@ -174,6 +175,9 @@
 
 ;; Bind compile to F5
 (global-set-key (kbd "<f5>") 'recompile)
+
+;; Remove word backwards with C-BSPC
+(global-set-key "\C-h" 'backward-kill-word)
 
 ;; Auto wrap comments
 (require 'newcomment)
