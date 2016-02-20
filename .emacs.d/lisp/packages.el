@@ -32,10 +32,10 @@
                      markdown-toc
                      recompile-on-save
                      jedi
-										 toml-mode
+                     toml-mode
                      mu4e-maildirs-extension
-										 smart-tabs-mode
-										 ))
+                     smart-tabs-mode
+                     ))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")

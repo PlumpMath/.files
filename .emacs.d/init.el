@@ -1,4 +1,4 @@
-;;; init --- Initialises emacs.
+ ;;; init --- Initialises emacs.
 
 ;;; Commentary:
 ;; The init.el for Rovanion.  It is into a couple of files.  Specifically:
@@ -27,10 +27,10 @@
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (dummy)
-	(menu-bar-mode -1)
-	(when (boundp 'set-scroll-bar-mode)
-		(set-scroll-bar-mode 'right)
-		(tool-bar-mode -1)))
+  (menu-bar-mode -1)
+  (when (boundp 'set-scroll-bar-mode)
+    (set-scroll-bar-mode 'right)
+    (tool-bar-mode -1)))
 (add-to-list 'after-make-frame-functions #'graphical-fixes)
 
 
@@ -44,27 +44,27 @@
 
 ;; Indentation galore!
 (setq-default tab-width 2
-							indent-tabs-mode t
-							js-indent-level tab-width
-							js2-basic-offset tab-width
-							sh-basic-offset tab-width
-							sh-indentation tab-width
-							sgml-basic-offset tab-width
-							python-indent tab-width
-							web-mode-markup-indent-offset tab-width
-							nginx-indent-level tab-width
-							)
+              indent-tabs-mode t
+              js-indent-level tab-width
+              js2-basic-offset tab-width
+              sh-basic-offset tab-width
+              sh-indentation tab-width
+              sgml-basic-offset tab-width
+              python-indent tab-width
+              web-mode-markup-indent-offset tab-width
+              nginx-indent-level tab-width
+              )
 
 ;; Color paranthesis in all the colors of the rainbow!
 (require 'rainbow-delimiters)
 (add-hook 'c++-mode-hook #'rainbow-delimiters-mode)
-(add-hook	'c-mode-hook #'rainbow-delimiters-mode)
-(add-hook	'python-mode-hook #'rainbow-delimiters-mode)
-(add-hook	'js2-mode-hook #'rainbow-delimiters-mode)
-(add-hook	'lisp-mode-hook #'rainbow-delimiters-mode)
-(add-hook	'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
-(add-hook	'go-mode-hook #'rainbow-delimiters-mode)
-(add-hook	'octave-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'c-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'python-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'js2-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'go-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'octave-mode-hook #'rainbow-delimiters-mode)
 
 ;; And then highlight the parenthesis.
 (show-paren-mode 1)
@@ -133,19 +133,19 @@
               (setq-local flycheck-indication-mode nil))))
 ;; We're writing C++11, and we want want flycheck on by default.
 (add-hook 'c++-mode-hook
-					(lambda ()
-						(setq flycheck-clang-language-standard "c++11")
-						(flycheck-mode)))
+          (lambda ()
+            (setq flycheck-clang-language-standard "c++11")
+            (flycheck-mode)))
 
 ;; Don't litter the fs with temporary files but put them in a central folder.
 (setq
-   backup-by-copying t      ; don't clobber symlinks
-   backup-directory-alist
-    '(("." . "~/.emacs.d/saves"))    ; don't litter my fs tree
-   delete-old-versions t
-   kept-new-versions 6
-   kept-old-versions 2
-   version-control t)       ; use versioned backups
+ backup-by-copying t      ; don't clobber symlinks
+ backup-directory-alist
+ '(("." . "~/.emacs.d/saves"))    ; don't litter my fs tree
+ delete-old-versions t
+ kept-new-versions 6
+ kept-old-versions 2
+ version-control t)       ; use versioned backups
 
 ;; Bind keys for moving to the next char of some type.
 (global-set-key (kbd "M-n") 'iy-go-up-to-char)
@@ -204,12 +204,12 @@
 (autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
 
 (defun auto-reload-firefox-on-after-save-hook ()
-	(add-hook 'after-save-hook
-						'(lambda ()
-							 (interactive)
-							 (comint-send-string (inferior-moz-process)
-																	 "setTimeout(BrowserReload, \"100\");"))
-						'append 'local)) ; buffer-local
+  (add-hook 'after-save-hook
+            '(lambda ()
+               (interactive)
+               (comint-send-string (inferior-moz-process)
+                                   "setTimeout(BrowserReload, \"100\");"))
+            'append 'local)) ; buffer-local
 
 (add-hook 'toml-mode-hook 'auto-reload-firefox-on-after-save-hook)
 
