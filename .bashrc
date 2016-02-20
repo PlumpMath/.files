@@ -11,17 +11,6 @@ blue='\e[0;34m'
 cyan='\e[0;36m'
 NC='\e[0m'
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth:erasedups
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=20000
-
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -75,20 +64,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -lFh'
-alias la='ls -Ah'
-alias l='ls -CFh'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -104,38 +83,6 @@ fi
 export EDITOR="emacsclient -nw -a=\"\""
 export VISUAL="emacsclient -a=\"\""
 
-# Work around my mistyping.
-alias "atp-get"="apt-get"
-
-# Fix so that sudo <alias of choice> works.
-alias sudo="sudo "
-
-# Console emacs
-alias ew="emacsclient -nw -a=\"\""
-alias en="emacsclient -a=\"\""
-
-# Alias my usual ls command
-alias lh="ls -lhAB"
-
-# Always show the diffs at the bottom of the commits
-alias gc="git commit -v"
-
-# Shorthand for upgrading debian/ubuntu
-alias upg="sudo apt-get update && sudo apt-get dist-upgrade"
-
-# The nodejs cli is named nodejs on Debian of name collision reasons, though everyone expects it to be named node.
-alias node=nodejs
-
-alias fuck=sl
-
-alias agi="sudo apt-get install"
-alias agr='sudo apt-get remove'
-alias agu='sudo apt-get update'
-alias acs='apt-cache search'
-alias afs='apt-file search'
-
-alias mu4e="mu index --maildir=~/.cache/mail/; ew -e '(mu4e)'"
-
 # Fixing not being able to type dead keys in emacs
 XMODIFIERS="emacs"
 
@@ -145,9 +92,12 @@ export GOPATH=$HOME/source/go
 # Assume that we have administrative privileges and also add the gopath.
 export PATH=$PATH:/usr/sbin:$HOME/source/go/bin:$HOME/.local/bin
 
+# For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=10000
+HISTFILESIZE=20000
 # Avoid duplicates
 export HISTCONTROL=ignoredups:erasedups
 # When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
 # After each command, append to the history file and reread it
-export PROMPT_COMMAND="newPrompt; history -a;"
+PROMPT_COMMAND="newPrompt; history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
