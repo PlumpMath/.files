@@ -25,6 +25,7 @@
 ;; Conf for directory listing mode.
 (require 'dired-conf)
 
+
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (dummy)
   (menu-bar-mode -1)
@@ -34,13 +35,11 @@
 (add-to-list 'after-make-frame-functions #'graphical-fixes)
 
 
-;; Hide the menu- and tool-bar in graphical mode.
-
-
 ;; Make scrolling by mouse linear
 (setq mouse-wheel-progressive-speed nil)
 ;; And then scroll only one line per scroll event. Great for laptops.
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+
 
 ;; Indentation galore!
 (setq-default tab-width 2
@@ -52,8 +51,7 @@
               sgml-basic-offset tab-width
               python-indent tab-width
               web-mode-markup-indent-offset tab-width
-              nginx-indent-level tab-width
-              )
+              nginx-indent-level tab-width)
 
 ;; Color paranthesis in all the colors of the rainbow!
 (require 'rainbow-delimiters)
@@ -80,20 +78,20 @@
             (if (eq window-system 'x)
                 (font-lock-mode 1))))
 
+
 ;; Run tex-mode when a .latex-file is opened
 (add-to-list 'auto-mode-alist '("\\.latex\\'" . LaTeX-mode))
 ;; Use visual-line-mode in latex-mode
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-
-;; Surpress emacs init screen
-(setq inhibit-startup-screen t)
-
 ;; Provides the minor mode which runs the compile comand on save.
 (add-hook 'LaTeX-mode-hook 'recompile-on-save-mode)
+
 
 ;; Remove trailing whitespaces before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Surpress emacs init screen
+(setq inhibit-startup-screen t)
 
 ;; Code which tries to make *compile* on errorcodes != 0
 (require 'only-display-compile-on-error)
@@ -104,7 +102,6 @@
       (setq ispell-program-name "hunspell")
       (eval-after-load "ispell"
         '(progn (defun ispell-get-coding-system () 'utf-8)))))
-
 
 ;;;; This snippet enables lua-mode.
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
@@ -123,8 +120,6 @@
 ;; Should be a fix for <dead-acute> is undefined.
 (require 'iso-transl)
 
-;; And normal spell checking for latex documents
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
 ;; Fix bug in terminal flycheck with company-mode.
 (add-hook 'flycheck-mode-hook
@@ -137,15 +132,25 @@
             (setq flycheck-clang-language-standard "c++11")
             (flycheck-mode)))
 
+
 ;; Don't litter the fs with temporary files but put them in a central folder.
-(setq
- backup-by-copying t      ; don't clobber symlinks
- backup-directory-alist
- '(("." . "~/.emacs.d/saves"))    ; don't litter my fs tree
- delete-old-versions t
- kept-new-versions 6
- kept-old-versions 2
- version-control t)       ; use versioned backups
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name
+                 (concat user-emacs-directory "backups")))))
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name
+                  (concat user-emacs-directory "auto-saves/")) t)))
+(setq backup-by-copying t    ; Copy all files, don't rename them.
+			delete-old-versions t  ; Don't ask to delete old versions.
+			kept-new-versions 6
+			kept-old-versions 2
+			version-control t      ; Use versioned backups.
+			vc-make-backup-files t ; Make backups of version controlled files.
+			auto-save-default t    ; auto-save every buffer that visits a file
+			auto-save-timeout 15   ; number of seconds idle time before auto-save (default: 30)
+      auto-save-interval 150 ; number of keystrokes between auto-saves (default: 300)
+			)
+
 
 ;; Bind keys for moving to the next char of some type.
 (global-set-key (kbd "M-n") 'iy-go-up-to-char)
