@@ -34,6 +34,7 @@
                      jedi
 										 toml-mode
                      mu4e-maildirs-extension
+										 smart-tabs-mode
 										 ))
 
 ;; list the repositories containing them

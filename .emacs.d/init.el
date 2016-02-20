@@ -195,7 +195,7 @@
 ;; If you use multiple-cursors, this is for you:
 (define-key global-map (kbd "C-c m") 'vr/mc-mark)
 
-
+;; Reload Firefox page through MozRepl.
 (require 'moz)
 (autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
 
@@ -207,11 +207,15 @@
 																	 "setTimeout(BrowserReload, \"100\");"))
 						'append 'local)) ; buffer-local
 
-
 (add-hook 'toml-mode-hook 'auto-reload-firefox-on-after-save-hook)
 
+;; Expand path to binaries installed in home folder.
 (setenv "PATH" (concat (getenv "PATH") ":~/.local/bin"))
 (setq exec-path (append exec-path '("~/.local/bin")))
+
+;; Tabs for indentation, spaces for alignment.
+(smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'nxml 'ruby)
+
 
 (provide 'init)
 ;;; init.el ends here
