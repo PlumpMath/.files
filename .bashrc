@@ -64,15 +64,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -lFh'
-alias la='ls -Ah'
-alias l='ls -CFh'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -91,38 +82,6 @@ fi
 # I want my visudos and git commits to be in emacs
 export EDITOR="emacsclient -nw -a=\"\""
 export VISUAL="emacsclient -a=\"\""
-
-# Work around my mistyping.
-alias "atp-get"="apt-get"
-
-# Fix so that sudo <alias of choice> works.
-alias sudo="sudo "
-
-# Console emacs
-alias ew="emacsclient -nw -a=\"\""
-alias en="emacsclient -a=\"\""
-
-# Alias my usual ls command
-alias lh="ls -lhAB"
-
-# Always show the diffs at the bottom of the commits
-alias gc="git commit -v"
-
-# Shorthand for upgrading debian/ubuntu
-alias upg="sudo apt-get update && sudo apt-get dist-upgrade"
-
-# The nodejs cli is named nodejs on Debian of name collision reasons, though everyone expects it to be named node.
-alias node=nodejs
-
-alias fuck=sl
-
-alias agi="sudo apt-get install"
-alias agr='sudo apt-get remove'
-alias agu='sudo apt-get update'
-alias acs='apt-cache search'
-alias afs='apt-file search'
-
-alias mu4e="mu index --maildir=~/.cache/mail/; ew -e '(mu4e)'"
 
 # Fixing not being able to type dead keys in emacs
 XMODIFIERS="emacs"
