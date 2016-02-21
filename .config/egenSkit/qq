@@ -48,11 +48,11 @@ key <AE12> { [ acute, grave, plusminus, notsign ] };
 
 };
 
-// Swedish Dvorak
+// Swedish Dvorak A5
 partial alphanumeric_keys
 xkb_symbols "dvorak" {
 
-name[Group1]="Sweden - Dvorak";
+name[Group1]="Sweden - Dvorak A5";
 
 include "se(basic)"
 
@@ -66,7 +66,7 @@ key <AD07> { [ g, G, question, ENG ] };
 key <AD08> { [ c, C, ampersand, copyright ] };
 key <AD09> { [ r, R, less, registered ] };
 key <AD10> { [ l, L, greater, Lstroke ] };
-key <AD11> { [ comma, semicolon, dead_cedilla, dead_ogonek ] };
+key <AD11> { [ comma, semicolon, dead_tilde, dead_ogonek ] };
 key <AD12> { [ dead_diaeresis, dead_circumflex, dead_tilde, asciicircum ] };
 
 key <AC01> { [ a, A, semicolon, AE ] };
