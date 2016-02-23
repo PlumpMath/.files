@@ -16,7 +16,7 @@ if [[ ! $1 == nox ]]; then
 
 
     # Debian dependency list:
-    sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus rxvt-unicode python-gnomekeyring volumeicon-alsa nm-applet xscreensaver file-roller keepassx mu4e maildir-utils weechat aspell-se glance
+    sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus rxvt-unicode python-gnomekeyring volumeicon-alsa nm-applet xscreensaver file-roller keepassx mu4e maildir-utils weechat aspell-se glances
 
     if lsb_release -i | grep -q Ubuntu; then
 	sudo apt-get install ubuntu-restricted-extras
@@ -28,7 +28,7 @@ if [[ ! $1 == nox ]]; then
     sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
     sudo update-alternatives --set x-www-browser /usr/bin/firefox
 else
-    sudo apt-get install git emacs-nox htop screen maildir-utils mu4e weechat aspell-se glance
+    sudo apt-get install git emacs-nox htop screen maildir-utils mu4e weechat aspell-se glances
 fi
 
 # In order to add emerge as mergetool run:
