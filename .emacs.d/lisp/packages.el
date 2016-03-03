@@ -35,7 +35,7 @@
                      toml-mode
                      mu4e-maildirs-extension
                      smart-tabs-mode
-                     ))
+                     cider))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")

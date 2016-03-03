@@ -19,6 +19,7 @@
 ;; Load language specific configurations.
 (require 'python-conf)
 (require 'go-conf)
+(require 'clojure-conf)
 (require 'nginx-conf)
 ;; Load conf for mail client.
 (require 'mu4e-conf)
