@@ -226,6 +226,10 @@
 ;; Tabs for indentation, spaces for alignment.
 (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'nxml 'ruby)
 
+;; Automatically deal with parentheses
+(require 'smartparens-config)
+(smartparens-global-mode)
+(smartparens-strict-mode)
 
 (provide 'init)
 ;;; init.el ends here
