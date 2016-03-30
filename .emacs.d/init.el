@@ -19,6 +19,7 @@
 ;; Load language specific configurations.
 (require 'python-conf)
 (require 'go-conf)
+(require 'clojure-conf)
 (require 'nginx-conf)
 ;; Load conf for mail client.
 (require 'mu4e-conf)
@@ -225,6 +226,10 @@
 ;; Tabs for indentation, spaces for alignment.
 (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'nxml 'ruby)
 
+;; Automatically deal with parentheses
+(require 'smartparens-config)
+(smartparens-global-mode)
+(smartparens-strict-mode)
 
 (provide 'init)
 ;;; init.el ends here
