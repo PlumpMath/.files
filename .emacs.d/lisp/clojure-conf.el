@@ -7,5 +7,6 @@
 ;; The emacs forward-word and backward-word stop in CamelCases.
 (add-hook 'clojure-mode-hook #'subword-mode)
 
+
 (provide 'clojure-conf)
 ;;; clojure-conf.el ends here
