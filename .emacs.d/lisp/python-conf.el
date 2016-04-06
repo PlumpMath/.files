@@ -9,8 +9,16 @@
   "/usr/bin/python3 -i"
   )
 
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+(setq jedi:environment-root "jedi-virtualenv")
+(setq jedi:environment-virtualenv
+			(append python-environment-virtualenv
+							              '("--python" "/usr/bin/python3")))
+
+;; Set up the python interpretern needed for company.
+(defun run-python-once ()
+  (remove-hook 'python-mode-hook 'run-python-once)
+  (run-python))
+(add-hook 'python-mode-hook 'run-python-once)
 
 (provide 'python-conf)
 ;;; python-conf.el ends here

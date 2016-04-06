@@ -21,6 +21,11 @@
   (run-python))
 (add-hook 'python-mode-hook 'run-python-once)
 
+;; Make jedi the company backend for python-mode.
+(defun my/python-mode-hook ()
+	(add-to-list 'company-backends 'company-jedi))
+(add-hook 'python-mode-hook 'my/python-mode-hook)
+
 ;; Only use company-go in go-mode
 (add-hook 'go-mode-hook (lambda ()
   (set (make-local-variable 'company-backends) '(company-go))

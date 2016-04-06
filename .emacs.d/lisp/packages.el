@@ -31,7 +31,7 @@
                      markdown-mode
                      markdown-toc
                      recompile-on-save
-                     jedi
+                     company-jedi
                      toml-mode
                      mu4e-maildirs-extension
                      smart-tabs-mode
