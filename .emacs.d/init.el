@@ -185,6 +185,7 @@
 ;; Remove word backwards with C-BSPC
 (global-set-key "\C-h" 'backward-kill-word)
 
+
 ;; Auto wrap comments
 (require 'newcomment)
 (setq fill-column 66)
@@ -230,6 +231,9 @@
 (require 'smartparens-config)
 (smartparens-global-mode)
 (smartparens-strict-mode)
+
+;; We can handle it!
+(put 'upcase-region 'disabled nil)
 
 (provide 'init)
 ;;; init.el ends here
