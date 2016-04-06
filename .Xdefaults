@@ -31,7 +31,7 @@ URxvt*scrollBar_right:                true
 ! nURxvt*tripleclickwords:               boolean
 ! URxvt*insecure:                       boolean
 ! URxvt*cursorUnderline:                boolean
-! URxvt*cursorBlink:                    boolean
+URxvt*cursorBlink:                    false
 ! URxvt*pointerBlank:                   boolean
 URxvt*background:                     black
 URxvt*foreground:                     white
