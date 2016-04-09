@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# Except the folders we explicitly want to follow.
+!.gitignore
+!Thunar
+!awesome
+!egenSkit
+!fish
+!htop
+!volumeicon
