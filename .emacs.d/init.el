@@ -25,7 +25,8 @@
 (require 'mu4e-conf)
 ;; Conf for directory listing mode.
 (require 'dired-conf)
-
+;; Collection of keybinding customizations
+(require 'keybinds)
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (dummy)
@@ -153,18 +154,6 @@
 			)
 
 
-;; Bind keys for moving to the next char of some type.
-(global-set-key (kbd "M-n") 'iy-go-up-to-char)
-(global-set-key (kbd "M-p") 'iy-go-to-char-backward)
-(setq iy-go-to-char-key-forward '¨)
-(setq iy-go-to-char-key-backward '^)
-
-;; Set up ace-window
-(setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s))
-(setq ace-jump-mode-move-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n ?s))
-(global-set-key (kbd "C-c C-SPC") 'ace-window)
-(global-set-key (kbd "M-SPC") 'ace-jump-mode)
-
 (add-to-list 'auto-mode-alist '("\\.md$" . jekyll-markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.html" . jekyll-html-mode))
 
@@ -173,14 +162,8 @@
   (let ((indent-tabs-mode nil))
     ad-do-it))
 
-;; Bind undo to C--
-(global-set-key (kbd "C--") 'undo)
-
 ;; Configure yasnippet
 (yas-global-mode 1)
-
-;; Bind compile to F5
-(global-set-key (kbd "<f5>") 'recompile)
 
 ;; Remove word backwards with C-BSPC
 (global-set-key "\C-h" 'backward-kill-word)
@@ -198,13 +181,6 @@
 ;; Troll coworkers - use Emacs at work for csharp!
 (add-hook 'csharp-mode-hook 'omnisharp-mode)
 (setq omnisharp-server-executable-path '~/source/OmniSharp/OmniSharp/bin/Debug/OmniSharp.exe)
-
-(require 'visual-regexp)
-(define-key global-map (kbd "C-c r") 'vr/replace)
-(define-key global-map (kbd "M-%") 'vr/query-replace)
-(define-key global-map (kbd "C-c q") 'vr/query-replace)
-;; If you use multiple-cursors, this is for you:
-(define-key global-map (kbd "C-c m") 'vr/mc-mark)
 
 ;; Reload Firefox page through MozRepl.
 (require 'moz)
