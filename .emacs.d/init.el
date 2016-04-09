@@ -57,15 +57,7 @@
 
 ;; Color paranthesis in all the colors of the rainbow!
 (require 'rainbow-delimiters)
-(add-hook 'c++-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'c-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'python-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'js2-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'go-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'octave-mode-hook #'rainbow-delimiters-mode)
-
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 ;; And then highlight the parenthesis.
 (show-paren-mode 1)
 
@@ -164,10 +156,6 @@
 
 ;; Configure yasnippet
 (yas-global-mode 1)
-
-;; Remove word backwards with C-BSPC
-(global-set-key "\C-h" 'backward-kill-word)
-
 
 ;; Auto wrap comments
 (require 'newcomment)
