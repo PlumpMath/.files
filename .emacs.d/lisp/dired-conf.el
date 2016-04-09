@@ -9,4 +9,4 @@
 (setq delete-by-moving-to-trash t)
 
 (provide 'dired-conf)
-;;; packages.el ends here
+;;; dired-conf.el ends here
