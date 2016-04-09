@@ -1,2 +1,2 @@
 #!/bin/sh
-emacs -Q $*
+emacsclient -nw  --eval "(emerge-files nil \"$3\" \"$4\" \"${4}.out\")""\")"
