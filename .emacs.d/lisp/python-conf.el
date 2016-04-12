@@ -11,8 +11,7 @@
 
 (setq jedi:environment-root "jedi-virtualenv")
 (setq jedi:environment-virtualenv
-			(append python-environment-virtualenv
-							              '("--python" "/usr/bin/python3")))
+      (list "virtualenv" "--system-site-packages -p /usr/bin/python3"))
 
 ;; Set up the python interpretern needed for company.
 (defun run-python-once ()
