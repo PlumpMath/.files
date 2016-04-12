@@ -135,15 +135,15 @@
       `((".*" ,(expand-file-name
                   (concat user-emacs-directory "auto-saves/")) t)))
 (setq backup-by-copying t    ; Copy all files, don't rename them.
-			delete-old-versions t  ; Don't ask to delete old versions.
-			kept-new-versions 6
-			kept-old-versions 2
-			version-control t      ; Use versioned backups.
-			vc-make-backup-files t ; Make backups of version controlled files.
-			auto-save-default t    ; auto-save every buffer that visits a file
-			auto-save-timeout 15   ; number of seconds idle time before auto-save (default: 30)
+      delete-old-versions t  ; Don't ask to delete old versions.
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t      ; Use versioned backups.
+      vc-make-backup-files t ; Make backups of version controlled files.
+      auto-save-default t    ; auto-save every buffer that visits a file
+      auto-save-timeout 15   ; number of seconds idle time before auto-save (default: 30)
       auto-save-interval 150 ; number of keystrokes between auto-saves (default: 300)
-			)
+      )
 
 
 (add-to-list 'auto-mode-alist '("\\.md$" . jekyll-markdown-mode))
