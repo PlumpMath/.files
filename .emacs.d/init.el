@@ -199,5 +199,8 @@
 ;; We can handle it!
 (put 'upcase-region 'disabled nil)
 
+;; Disable cursor blinking, it was driving me mad!
+(setq visible-cursor nil)
+
 (provide 'init)
 ;;; init.el ends here
