@@ -53,7 +53,8 @@
               sgml-basic-offset tab-width
               python-indent tab-width
               web-mode-markup-indent-offset tab-width
-              nginx-indent-level tab-width)
+              nginx-indent-level tab-width
+							css-indent-offset tab-width)
 
 ;; Color paranthesis in all the colors of the rainbow!
 (require 'rainbow-delimiters)
