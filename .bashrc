@@ -90,7 +90,7 @@ XMODIFIERS="emacs"
 export GOPATH=$HOME/source/go
 
 # Assume that we have administrative privileges and also add the gopath.
-export PATH=$PATH:/usr/sbin:$HOME/source/go/bin:$HOME/.local/bin
+export PATH="$PATH:/usr/sbin:$HOME/source/go/bin:$HOME/.local/bin:/usr/local/heroku/bin"
 
 # For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
