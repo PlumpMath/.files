@@ -1,3 +1,5 @@
+local awful = require("awful")
+
 -- {{{ Autostart
 --Autostart scripting
 function run_once(command, class, tag)

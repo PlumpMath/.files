@@ -160,7 +160,8 @@ mytasklist.buttons = awful.util.table.join(
 	 awful.button({ }, 5, function ()
 				 awful.client.focus.byidx(-1)
 				 if client.focus then client.focus:raise() end
-end))
+	 end)
+)
 
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
@@ -178,7 +179,7 @@ for s = 1, screen.count() do
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
 
     -- Create a tasklist widget
-    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
+    mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "bottom", screen = s })
@@ -269,7 +270,7 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86Launch1", function () awful.util.spawn('xset dpms force off') end),
     awful.key({ modkey, "Shift" }, "s", function ()
                  awful.util.spawn('xscreensaver-command --lock')
-                 awful.util.spawn('dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend')
+                 awful.util.spawn('dbus-send --print-reply --system --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Suspend boolean:true')
                                           end),
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),

@@ -15,11 +15,6 @@
 (add-hook 'go-mode-hook         'company-mode)
 (add-hook 'python-mode-hook     'company-mode)
 
-;; Set up the python interpretern needed for company.
-(defun run-python-once ()
-  (remove-hook 'python-mode-hook 'run-python-once)
-  (run-python))
-(add-hook 'python-mode-hook 'run-python-once)
 
 ;; Make jedi the company backend for python-mode.
 (defun my/python-mode-hook ()
