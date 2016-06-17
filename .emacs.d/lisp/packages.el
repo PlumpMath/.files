@@ -39,7 +39,7 @@
                      smartparens))
 
 ;; list the repositories containing them
-(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
+(setq package-archives '(("melpa" . "https://stable.melpa.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 ;; activate all the packages (in particular autoloads)
