@@ -7,7 +7,10 @@
 ;; The emacs forward-word and backward-word stop in CamelCases.
 (add-hook 'clojure-mode-hook #'subword-mode)
 
-(setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+(setq cider-cljs-lein-repl
+      "(do (use 'figwheel-sidecar.repl-api)
+           (figwheel-sidecar.repl-api/start-figwheel!)
+           (figwheel-sidecar.repl-api/cljs-repl)")
 
 ;; Use company-mode with cider.
 (add-hook 'cider-repl-mode-hook #'company-mode)
