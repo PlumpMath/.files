@@ -8,11 +8,11 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "awsetbg /home/rovanion/Dropbox/Photos/Backgrounds/blabar.jpg" }
+theme.wallpaper = "~/Dropbox/Photos/Backgrounds/blabar.jpg"
 -- }}}
 
 -- {{{ Styles
-theme.font      = "sans 8"
+theme.font      = "Sans 8"
 
 -- {{{ Colors
 theme.fg_normal = "#DCDCCC"
