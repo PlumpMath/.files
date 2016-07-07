@@ -36,7 +36,9 @@
                      mu4e-maildirs-extension
                      smart-tabs-mode
                      cider
-                     smartparens))
+                     smartparens
+										 helm
+										 helm-gtags))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa" . "https://stable.melpa.org/packages/")

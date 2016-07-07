@@ -47,5 +47,15 @@ the current position of point, then move it to the beginning of the line."
 ;; Remove word backwards with C-BSPC
 (global-set-key "\C-h" 'backward-kill-word)
 
+
+;; Helm
+(define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
+(define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
+(define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+(define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+(define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+(define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
+
+
 (provide 'keybinds)
 ;;; keybinds.el ends here

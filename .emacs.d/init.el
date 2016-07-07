@@ -16,6 +16,8 @@
 (require 'packages)
 ;; Load auto complete configuration.
 (require 'company-conf)
+;; Helm auto completion of emacs actions.
+(require 'helm-conf)
 ;; Load language specific configurations.
 (require 'python-conf)
 (require 'go-conf)
