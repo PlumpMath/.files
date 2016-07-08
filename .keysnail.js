@@ -481,3 +481,11 @@ key.setCaretKey('M-p', function (ev) {
 key.setCaretKey('M-n', function (ev) {
                 command.walkInputElement(command.elementsRetrieverButton, false, true);
             }, 'Focus to the previous button');
+
+key.setGlobalKey(['C-x', 'C--'], function (ev) {
+    FullZoom.reduce();
+}, 'Reduce text size');
+
+key.setGlobalKey(['C-x', 'C-+'], function (ev) {
+    FullZoom.enlarge();
+}, 'Enlarge text size');
