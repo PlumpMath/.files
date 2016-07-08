@@ -79,6 +79,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# Allow <C-s> to pass through to shell and programs
+stty -ixon -ixoff
+
 # I want my visudos and git commits to be in emacs
 export EDITOR="emacsclient -nw -a=\"\""
 export VISUAL="emacsclient -a=\"\""
