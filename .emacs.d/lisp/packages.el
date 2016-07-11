@@ -3,14 +3,9 @@
 ;;;;
 ;; list the packages you want
 (setq package-list '(js2-mode
-                     auto-complete
-                     ac-js2
-                     ac-math
-                     ac-octave
                      skewer-mode
                      flycheck
                      pos-tip
-                     auto-complete-clang-async
                      iy-go-to-char
                      go-mode
                      company-go
