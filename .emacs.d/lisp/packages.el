@@ -32,11 +32,12 @@
                      smart-tabs-mode
                      cider
                      smartparens
-										 helm
-										 helm-gtags))
+                     helm
+                     helm-gtags))
 
 ;; list the repositories containing them
-(setq package-archives '(("melpa" . "https://stable.melpa.org/packages/")
+(setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 ;; activate all the packages (in particular autoloads)
@@ -48,8 +49,8 @@
 
 ;; install the missing packages
 (dolist (package package-list)
-	(unless (package-installed-p package)
-		(package-install package)))
+  (unless (package-installed-p package)
+    (package-install package)))
 
 (provide 'packages)
 ;;; packages.el ends here
