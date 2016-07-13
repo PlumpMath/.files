@@ -17,6 +17,12 @@ the current position of point, then move it to the beginning of the line."
 (define-key prog-mode-map (kbd "C-o") 'split-line)
 (define-key prog-mode-map (kbd "C-M-o") 'open-line)
 
+(define-key c-mode-map (kbd "RET") 'newline-and-indent)
+(define-key c-mode-map (kbd "C-j") 'newline)
+(define-key c-mode-map (kbd "C-a") 'smart-line-beginning)
+(define-key c-mode-map (kbd "C-o") 'split-line)
+(define-key c-mode-map (kbd "C-M-o") 'open-line)
+
 
 (require 'visual-regexp)
 (define-key global-map (kbd "C-c r") 'vr/replace)
@@ -51,8 +57,8 @@ the current position of point, then move it to the beginning of the line."
 ;; Helm
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
 (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
-(define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
-(define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+(define-key helm-gtags-mode-map (kbd "M-å") 'helm-gtags-dwim)
+(define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-pop-stack)
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
 
