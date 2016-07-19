@@ -17,6 +17,7 @@ the current position of point, then move it to the beginning of the line."
 (define-key prog-mode-map (kbd "C-o") 'split-line)
 (define-key prog-mode-map (kbd "C-M-o") 'open-line)
 
+(require 'cc-mode)
 (define-key c-mode-map (kbd "RET") 'newline-and-indent)
 (define-key c-mode-map (kbd "C-j") 'newline)
 (define-key c-mode-map (kbd "C-a") 'smart-line-beginning)
