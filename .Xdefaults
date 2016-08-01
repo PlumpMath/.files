@@ -79,7 +79,7 @@ URxvt*font:                           	-*-terminus-medium-r-*-*-*-140-*-*-*-*-*
 ! URxvt*imFont:                         fontname
 ! URxvt*title:                          string
 ! URxvt*iconName:                       string
-! URxvt*saveLines:                      number
+URxvt*saveLines:                      5000
 ! URxvt*buffered:                       boolean
 ! URxvt*depth:                          32
 ! URxvt*visual:                         number
@@ -133,6 +133,6 @@ URxvt*url-launcher:                     /usr/bin/xdg-open
 
 
 ! Make C-å, C-ä and C-ö produce ^Å, ^Ä and ^Ö like all the other keys.
-URxvt*keysym.C-aring:                   ^Å
+URxvt*keysym.C-aring:                   \001
 URxvt*keysym.C-adiaeresis:              ^Ä
 URxvt*keysym.C-odiaeresis:              ^Ö
