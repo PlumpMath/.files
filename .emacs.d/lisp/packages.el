@@ -33,7 +33,8 @@
                      cider
                      smartparens
                      helm
-                     helm-gtags))
+                     helm-gtags
+                     clj-refactor))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
