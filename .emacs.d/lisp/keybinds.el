@@ -64,6 +64,7 @@ the current position of point, then move it to the beginning of the line."
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
 
 ;; Binds like the helm ones for CIDER
+(require 'cider-mode)
 (define-key cider-mode-map (kbd "M-å") 'cider-find-dwim)
 (define-key cider-mode-map (kbd "M-.") 'cider-pop-back)
 
