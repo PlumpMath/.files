@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+local=$(readlink -f "$1")
+remote=$(readlink -f "$2")
+base=$(readlink -f "$3")
+merged=$(readlink -f "$4")
+
+emacsclient --eval "(emerge-files-with-ancestor nil \"$local\" \"$remote\" \"$base\" \"$merged\")"
+
+! egrep -q '^(<<<<<<<|=======|>>>>>>>|####### Ancestor)' "$merged"
