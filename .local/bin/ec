@@ -1,2 +1,2 @@
 #!/bin/sh
-/usr/bin/emacsclient -n -c $@
+/usr/bin/emacsclient -n -c "$@"
