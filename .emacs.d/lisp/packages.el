@@ -34,7 +34,8 @@
                      smartparens
                      helm
                      helm-gtags
-                     clj-refactor))
+                     clj-refactor
+										 php-mode))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
