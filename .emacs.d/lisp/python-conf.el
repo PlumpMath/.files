@@ -6,8 +6,7 @@
  '(python-shell-interpreter "python3"))
 (defun python-shell-parse-command ()
   "Return the string used to execute the inferior Python process."
-  "/usr/bin/python3 -i"
-  )
+  "/usr/bin/python3 -i")
 
 (setq jedi:environment-root "jedi-virtualenv")
 (setq jedi:environment-virtualenv
@@ -18,6 +17,9 @@
   (remove-hook 'python-mode-hook 'run-python-once)
   (run-python))
 (add-hook 'python-mode-hook 'run-python-once)
+
+;; Run Jedi when we edit python files.
+(add-hook 'python-mode-hook #'jedi-mode)
 
 (provide 'python-conf)
 ;;; python-conf.el ends here
