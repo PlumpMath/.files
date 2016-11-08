@@ -37,3 +37,7 @@ alias afs='apt-file search'
 
 # Start the emacs mail client.
 alias mu4e="mu index --maildir=~/.cache/mail/; ew -e '(mu4e)'"
+
+
+# Open any file with the default application as defined by the desktop environment.
+alias o='xdg-open'
