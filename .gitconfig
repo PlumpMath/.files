@@ -1,0 +1,28 @@
+[user]
+	name = Rovanion Luckey
+	email = rovanion.luckey@gmail.com
+[merge]
+	tool = ew-merge
+[mergetool "ew-merge"]
+        prompt = false
+	cmd = ew-merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+	trustExitCode = true
+[difftool]
+        prompt = false
+[core]
+	editor = emacsclient -t -a=\\\"\\\"
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+[credential]
+	helper = cache --timeout=3600
+[push]
+	default = simple
+[color]
+	ui = auto
+[sendemail]
+	from = Rovanion Luckey <rovanion.luckey@gmail.com>
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = rovanion.luckey@gmail.com
+	smtpserverport = 587
+	chainreplyto = false
