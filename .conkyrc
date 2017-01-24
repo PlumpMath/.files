@@ -1,35 +1,38 @@
-use_xft true
-xftfont 123:size=8
-xftalpha 0.1
-update_interval 2
-total_run_times 0
-own_window no
-own_window_type override
-own_window_transparent true
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-double_buffer true
-minimum_size 250 5
-maximum_width 600
-draw_shades no
-draw_outline no
-draw_borders no
-draw_graph_borders no
-default_color white
-default_shade_color grey
-default_outline_color green
-alignment top_left
-no_buffers true
-uppercase no
-cpu_avg_samples 1
-net_avg_samples 1
-override_utf8_locale true
-use_spacer left
+conky.config = {
+	use_xft = true,
+	font = '123:size=8',
+	xftalpha = 0.1,
+	update_interval = 2,
+	total_run_times = 0,
+	own_window = false,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+	minimum_width = 250, minimum_height = 5,
+	maximum_width = 600,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	default_color = 'white',
+	default_shade_color = 'grey',
+	default_outline_color = 'green',
+	alignment = 'top_left',
+	no_buffers = true,
+	uppercase = false,
+	cpu_avg_samples = 1,
+	net_avg_samples = 1,
+	override_utf8_locale = true,
+	use_spacer = 'left',
 
-# Adjust the distance from the screen edge
-gap_x 1310
-gap_y 850
+-- Adjust the distance from the screen edge
+	gap_x = 50,
+	gap_y = 700,
 
-TEXT
+};
+
+conky.text = [[
 ${voffset 0}${color EAEAEA}${font GE Inspira:pixelsize=120}${time %H:%M}\
 ${voffset -56}${offset 10}${color FFA300}${font GE Inspira:pixelsize=42}${time %d} \
 ${voffset -16}${offset 0}${color EAEAEA}${font GE Inspira:pixelsize=22}${time %B} ${time %Y}\
@@ -40,3 +43,4 @@ ${offset 12}${color FFA300}TEMP $color ${execi 8 sensors | grep -m 1 temp1: | cu
 ${offset 28}${color FFA300}HD $color${fs_free /} / ${fs_size /}\
 ${offset 28}${color FFA300}RAM $color$mem / $memmax\
 ${offset 28}${color FFA300}CPU $color${cpu cpu0}%\
+]];

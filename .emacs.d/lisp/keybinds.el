@@ -63,10 +63,16 @@ the current position of point, then move it to the beginning of the line."
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
 
-;; Binds like the helm ones for CIDER
+;; Binds like the helm-gtags ones for CIDER
 (require 'cider-mode)
 (define-key cider-mode-map (kbd "M-å") 'cider-find-dwim)
 (define-key cider-mode-map (kbd "M-.") 'cider-pop-back)
+
+;; Binds like the helm-gtags ones for JEDI
+;(require 'jedi-mode)
+(define-key jedi-mode-map (kbd "M-å") 'jedi:goto-definition)
+(define-key jedi-mode-map (kbd "M-.") 'jedi:goto-definition-pop-marker)
+(define-key jedi-mode-map (kbd "M-ä") 'helm-jedi-related-names)
 
 (provide 'keybinds)
 ;;; keybinds.el ends here
