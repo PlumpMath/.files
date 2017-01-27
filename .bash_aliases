@@ -39,5 +39,5 @@ alias afs='apt-file search'
 alias mu4e="mu index --maildir=~/.cache/mail/; ew -e '(mu4e)'"
 
 
-# Open any file with the default application as defined by the desktop environment.
-alias o='xdg-open'
+# Open any file with the default application as defined by the desktop environment with o.
+o() { xdg-open "$@" &>/dev/null & }
