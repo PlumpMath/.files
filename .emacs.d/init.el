@@ -142,12 +142,9 @@
       vc-make-backup-files t ; Make backups of version controlled files.
       auto-save-default t    ; auto-save every buffer that visits a file
       auto-save-timeout 15   ; number of seconds idle time before auto-save (default: 30)
-      auto-save-interval 150 ; number of keystrokes between auto-saves (default: 300)
-      )
+      auto-save-interval 150); number of keystrokes between auto-saves (default: 300)
 
 
-(add-to-list 'auto-mode-alist '("\\.md$" . jekyll-markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.html" . jekyll-html-mode))
 
 ;; Make align-regexp use spaces instead of tab characters.
 (defadvice align-regexp (around align-regexp-with-spaces activate)
@@ -205,5 +202,3 @@
 
 (provide 'init)
 ;;; init.el ends here
-
-
