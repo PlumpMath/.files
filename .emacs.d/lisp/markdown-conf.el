@@ -6,6 +6,7 @@
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 
 (add-hook 'markdown-mode-hook 'visual-line-mode)
+(add-hook 'markdown-mode-hook 'auto-fill-mode)
 
 (provide 'markdown-conf)
 ;;; markdown-conf.el ends here

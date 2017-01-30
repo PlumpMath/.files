@@ -9,7 +9,7 @@
 
 ;; Automatically download packages requiered for this conf.
 (require 'packages)
-;; Load auto complete configuration.
+;; Load text auto complete configuration.
 (require 'company-conf)
 ;; Helm auto completion of emacs actions.
 (require 'helm-conf)
@@ -18,14 +18,18 @@
 (require 'go-conf)
 (require 'clojure-conf)
 (require 'nginx-conf)
+(require 'markdown-conf)
 ;; Load conf for mail client.
 (require 'mu4e-conf)
 ;; Conf for directory listing mode.
 (require 'dired-conf)
 ;; Collection of keybinding customizations
 (require 'keybinds)
+;; Code which tries to make *compile* show only on errorcodes != 0
+(require 'only-display-compile-on-error)
 ;; Tell emacs "customizations" to write to another file.
 (setq custom-file "~/.emacs.d/lisp/custom.el")
+
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (dummy)
@@ -86,9 +90,6 @@
 
 ;; Surpress emacs init screen
 (setq inhibit-startup-screen t)
-
-;; Code which tries to make *compile* on errorcodes != 0
-(require 'only-display-compile-on-error)
 
 ;; Tell emacs to use hunspell as it spell correcting program
 (if (file-exists-p "/usr/bin/hunspell")
