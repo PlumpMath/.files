@@ -26,7 +26,7 @@ run_once("~/.config/egenSkit/mouseAndKeyboard.bash")
 run_once("firefox", "Firefox", tags[1][2])
 run_once("volumeicon")
 run_once("nm-applet")
-run_once("xscreensaver -no-splash")
+-- run_once("xscreensaver -no-splash")
 run_once("audacious", "Audacious", tags[1][5])
 run_once("emacs --daemon");
 -- run_once("evolution", "Evolution", tags[1][3])

@@ -9,7 +9,7 @@
 
 ;; Automatically download packages requiered for this conf.
 (require 'packages)
-;; Load auto complete configuration.
+;; Load text auto complete configuration.
 (require 'company-conf)
 ;; Helm auto completion of emacs actions.
 (require 'helm-conf)
@@ -18,14 +18,18 @@
 (require 'go-conf)
 (require 'clojure-conf)
 (require 'nginx-conf)
+(require 'markdown-conf)
 ;; Load conf for mail client.
 (require 'mu4e-conf)
 ;; Conf for directory listing mode.
 (require 'dired-conf)
 ;; Collection of keybinding customizations
 (require 'keybinds)
+;; Code which tries to make *compile* show only on errorcodes != 0
+(require 'only-display-compile-on-error)
 ;; Tell emacs "customizations" to write to another file.
 (setq custom-file "~/.emacs.d/lisp/custom.el")
+
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (dummy)
@@ -87,9 +91,6 @@
 ;; Surpress emacs init screen
 (setq inhibit-startup-screen t)
 
-;; Code which tries to make *compile* on errorcodes != 0
-(require 'only-display-compile-on-error)
-
 ;; Tell emacs to use hunspell as it spell correcting program
 (if (file-exists-p "/usr/bin/hunspell")
     (progn
@@ -142,12 +143,9 @@
       vc-make-backup-files t ; Make backups of version controlled files.
       auto-save-default t    ; auto-save every buffer that visits a file
       auto-save-timeout 15   ; number of seconds idle time before auto-save (default: 30)
-      auto-save-interval 150 ; number of keystrokes between auto-saves (default: 300)
-      )
+      auto-save-interval 150); number of keystrokes between auto-saves (default: 300)
 
 
-(add-to-list 'auto-mode-alist '("\\.md$" . jekyll-markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.html" . jekyll-html-mode))
 
 ;; Make align-regexp use spaces instead of tab characters.
 (defadvice align-regexp (around align-regexp-with-spaces activate)
@@ -205,5 +203,3 @@
 
 (provide 'init)
 ;;; init.el ends here
-
-

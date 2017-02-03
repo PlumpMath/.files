@@ -69,10 +69,17 @@ the current position of point, then move it to the beginning of the line."
 (define-key cider-mode-map (kbd "M-.") 'cider-pop-back)
 
 ;; Binds like the helm-gtags ones for JEDI
-;(require 'jedi-mode)
+(require 'jedi)
 (define-key jedi-mode-map (kbd "M-å") 'jedi:goto-definition)
 (define-key jedi-mode-map (kbd "M-.") 'jedi:goto-definition-pop-marker)
 (define-key jedi-mode-map (kbd "M-ä") 'helm-jedi-related-names)
+
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
 
 (provide 'keybinds)
 ;;; keybinds.el ends here

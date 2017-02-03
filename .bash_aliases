@@ -13,9 +13,8 @@ alias en="emacsclient -a=\"\""
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias some handy ls commands
-alias lh="ls -lhAB"
 alias ll='ls -lFh'
-alias la='ls -Ah'
+alias la='ls -lAh'
 alias l='ls -CFh'
 
 # Always show the diffs at the bottom of the commits
@@ -39,5 +38,5 @@ alias afs='apt-file search'
 alias mu4e="mu index --maildir=~/.cache/mail/; ew -e '(mu4e)'"
 
 
-# Open any file with the default application as defined by the desktop environment.
-alias o='xdg-open'
+# Open any file with the default application as defined by the desktop environment with o.
+o() { xdg-open "$@" &>/dev/null & }
