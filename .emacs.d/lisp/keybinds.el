@@ -54,7 +54,6 @@ the current position of point, then move it to the beginning of the line."
 ;; Remove word backwards with C-BSPC
 (global-set-key "\C-h" 'backward-kill-word)
 
-
 ;; Helm
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
 (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
@@ -75,7 +74,7 @@ the current position of point, then move it to the beginning of the line."
 (define-key jedi-mode-map (kbd "M-ä") 'helm-jedi-related-names)
 
 (require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C-c c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
