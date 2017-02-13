@@ -23,6 +23,7 @@
 (require 'mu4e-conf)
 ;; Conf for directory listing mode.
 (require 'dired-conf)
+(require 'spelling)
 ;; Collection of keybinding customizations
 (require 'keybinds)
 ;; Code which tries to make *compile* show only on errorcodes != 0
@@ -90,13 +91,6 @@
 
 ;; Surpress emacs init screen
 (setq inhibit-startup-screen t)
-
-;; Tell emacs to use hunspell as it spell correcting program
-(if (file-exists-p "/usr/bin/hunspell")
-    (progn
-      (setq ispell-program-name "hunspell")
-      (eval-after-load "ispell"
-        '(progn (defun ispell-get-coding-system () 'utf-8)))))
 
 ;;;; This snippet enables lua-mode.
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)

@@ -79,5 +79,8 @@ the current position of point, then move it to the beginning of the line."
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+(require 'flyspell-correct-helm)
+(define-key flyspell-mode-map (kbd "M-ö") 'flyspell-correct-previous-word-generic)
+
 (provide 'keybinds)
 ;;; keybinds.el ends here
