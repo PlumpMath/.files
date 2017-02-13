@@ -1,7 +1,7 @@
  ;;; init --- Initialises emacs.
 
 ;;; Commentary:
-;; The init.el for Rovanion.  It is into a couple of files.  Specifically:
+;; The init.el for Rovanion.  It is split into a couple of different files.
 
 ;;; Code:
 ;; Load files from here.

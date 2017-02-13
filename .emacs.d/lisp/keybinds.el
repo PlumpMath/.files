@@ -79,6 +79,5 @@ the current position of point, then move it to the beginning of the line."
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-
 (provide 'keybinds)
 ;;; keybinds.el ends here
