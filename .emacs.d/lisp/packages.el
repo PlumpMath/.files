@@ -26,6 +26,7 @@
                      markdown-mode
                      markdown-toc
                      recompile-on-save
+                     jedi
                      company-jedi
                      toml-mode
                      mu4e-maildirs-extension
@@ -35,7 +36,9 @@
                      helm
                      helm-gtags
                      clj-refactor
-										 php-mode))
+                     php-mode
+										 flyspell-lazy
+										 flyspell-correct-helm))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")

@@ -5,7 +5,6 @@
 (helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
-
 ;; Helm-gtags conf
 (setq helm-gtags-ignore-case t
 			helm-gtags-auto-update t
@@ -16,11 +15,11 @@
 
 (require 'helm-gtags)
 ;; Enable helm-gtags-mode
-(add-hook 'dired-mode-hook 'helm-gtags-mode)
+(add-hook 'dired-mode-hook  'helm-gtags-mode)
 (add-hook 'eshell-mode-hook 'helm-gtags-mode)
-(add-hook 'c-mode-hook 'helm-gtags-mode)
-(add-hook 'c++-mode-hook 'helm-gtags-mode)
-(add-hook 'asm-mode-hook 'helm-gtags-mode)
+(add-hook 'c-mode-hook      'helm-gtags-mode)
+(add-hook 'c++-mode-hook    'helm-gtags-mode)
+(add-hook 'asm-mode-hook    'helm-gtags-mode)
 
 ;; Keybinds can be found in keybinds.el
 

@@ -5,20 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(python-python-command "python3")
  '(python-shell-interpreter "python3")
- '(safe-local-variable-values
-	 (quote
-		((smart-tabs-mode)
-		 (smart-tabs-mode-enable nil)
-		 (eval progn
-					 (c-set-offset
-						(quote case-label)
-						(quote 0))
-					 (c-set-offset
-						(quote innamespace)
-						(quote 0))
-					 (c-set-offset
-						(quote inline-open)
-						(quote 0)))))))
+ '(safe-local-variable-values (quote ((TeX-master . "demothesis")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
