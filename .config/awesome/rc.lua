@@ -248,8 +248,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "a",     function () awful.tag.incnmaster( 1)      end),
     awful.key({ modkey, "Shift"   }, "e",     function () awful.tag.incnmaster(-1)      end),
     -- Increase number of rows
-    awful.key({ modkey, "Control" }, "a",     function () awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Control" }, "e",     function () awful.tag.incncol(-1)         end),
+    awful.key({ modkey, "Mod1" }, "a",     function () awful.tag.incncol( 1)         end),
+    awful.key({ modkey, "Mod1" }, "e",     function () awful.tag.incncol(-1)         end),
     -- Switch layout
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
@@ -261,14 +261,14 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "t", function () awful.util.spawn("thunar") end),
     awful.key({ modkey, "Shift"   }, "n", function () awful.util.spawn("nautilus") end),
     awful.key({ modkey, "Shift"   }, "odiaeresis", function () awful.util.spawn("evince") end),
-    awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Control" }, "q", awesome.quit),
+    awful.key({ modkey, "Mod1" }, "r", awesome.restart),
+    awful.key({ modkey, "Mod1" }, "q", awesome.quit),
 
     -- Haha
     awful.key({ modkey }, "c", function () run_once("mplayer ~/Dropbox/Ljud/ostrich_track2.aac") end),
 
     -- Window controls
-    awful.key({ modkey, "Control" }, "n", awful.client.restore),
+    awful.key({ modkey, "Mod1" }, "n", awful.client.restore),
 
     -- Power management
     awful.key({ }, "XF86Launch1", function () awful.util.spawn('xset dpms force off') end),
@@ -291,8 +291,8 @@ globalkeys = awful.util.table.join(
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, ".",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey,     }, "q",      function (c) c:kill()                         end),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
+    awful.key({ modkey, "Mod1" }, "space",  awful.client.floating.toggle                     ),
+    awful.key({ modkey, "Mod1" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "l",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
@@ -331,7 +331,7 @@ for i = 1, keynumber do
 						end
 			end),
 			-- Toggle tag.
-			awful.key({ modkey, "Control" }, "#" .. i + 9,
+			awful.key({ modkey, "Mod1" }, "#" .. i + 9,
 				 function ()
 						local screen = mouse.screen
 						local tag = awful.tag.gettags(screen)[i]
@@ -350,7 +350,7 @@ for i = 1, keynumber do
 						end
 			end),
 			-- Toggle tag.
-			awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
+			awful.key({ modkey, "Mod1", "Shift" }, "#" .. i + 9,
 				 function ()
 						if client.focus then
 							 local tag = awful.tag.gettags(client.focus.screen)[i]
@@ -375,7 +375,7 @@ globalkeys = awful.util.table.join(
 				 end
 	 end),
 	 -- Toggle tag.
-	 awful.key({ modkey, "Control" }, "#49",
+	 awful.key({ modkey, "Mod1" }, "#49",
 			function ()
 				 local screen = mouse.screen
 				 local tag = awful.tag.gettags(screen)[0]
@@ -394,7 +394,7 @@ globalkeys = awful.util.table.join(
 				 end
 	 end),
 	 -- Toggle tag.
-	 awful.key({ modkey, "Control", "Shift" }, "#49",
+	 awful.key({ modkey, "Mod1", "Shift" }, "#49",
 			function ()
 				 if client.focus then
 						local tag = awful.tag.gettags(client.focus.screen)[0]
