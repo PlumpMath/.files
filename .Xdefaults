@@ -12,9 +12,9 @@ URxvt*scrollBar_right:                true
 ! URxvt*scrollBar_floating:             true
 ! URxvt*scrollBar_align:                mode
 ! URxvt*thickness:                      number
-! URxvt*scrollTtyOutput:                boolean
-! URxvt*scrollTtyKeypress:              boolean
-! URxvt*scrollWithBuffer:               boolean
+URxvt*scrollTtyOutput:                false
+URxvt*scrollTtyKeypress:              true
+URxvt*scrollWithBuffer:               true
 ! URxvt*inheritPixmap:                  boolean
 ! URxvt*transparent:                    true
 ! URxvt*tintColor:                      color
@@ -68,7 +68,7 @@ URxvt*foreground:                     white
 ! URxvt*path:                           search path
 ! URxvt*backgroundPixmap:               file[;geom]
 ! URxvt*iconFile:                       file
-URxvt*font:                           	-*-terminus-medium-r-*-*-*-140-*-*-*-*-*
+URxvt*font:                           -*-terminus-medium-r-*-*-*-140-*-*-*-*-*
 ! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
@@ -79,7 +79,7 @@ URxvt*font:                           	-*-terminus-medium-r-*-*-*-140-*-*-*-*-*
 ! URxvt*imFont:                         fontname
 ! URxvt*title:                          string
 ! URxvt*iconName:                       string
-URxvt*saveLines:                      5000
+URxvt*saveLines:                      10000
 ! URxvt*buffered:                       boolean
 ! URxvt*depth:                          32
 ! URxvt*visual:                         number
