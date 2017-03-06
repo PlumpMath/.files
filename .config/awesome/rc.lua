@@ -234,50 +234,47 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "m", function () mymainmenu:show({keygrabber=true}) end),
+    awful.key({ modkey,           }, "m",     function () mymainmenu:show({keygrabber=true}) end),
 
     -- Move window in the stack
-    awful.key({ modkey,   }, "aring", function () awful.client.swap.byidx(  1)    end),
-    awful.key({ modkey,     }, "odiaeresis", function () awful.client.swap.byidx( -1)    end),
+    awful.key({ modkey,   }, "aring",         function () awful.client.swap.byidx(  1)    end),
+    awful.key({ modkey,     }, "odiaeresis",  function () awful.client.swap.byidx( -1)    end),
     -- Resizing windows
     awful.key({ modkey,           }, "e",     function () awful.tag.incmwfact( 0.1)    end),
     awful.key({ modkey,           }, "a",     function () awful.tag.incmwfact(-0.1)    end),
-    awful.key({ modkey,     }, "adiaeresis", function () awful.client.incwfact(-0.5) end),
-    awful.key({ modkey,     }, "o", function () awful.client.incwfact( 0.5) end),
+    awful.key({ modkey,     }, "adiaeresis",  function () awful.client.incwfact(-0.5) end),
+    awful.key({ modkey,     }, "o",           function () awful.client.incwfact( 0.5) end),
     -- Increase number of windows in row
     awful.key({ modkey, "Shift"   }, "a",     function () awful.tag.incnmaster( 1)      end),
     awful.key({ modkey, "Shift"   }, "e",     function () awful.tag.incnmaster(-1)      end),
     -- Increase number of rows
-    awful.key({ modkey, "Mod1" }, "a",     function () awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Mod1" }, "e",     function () awful.tag.incncol(-1)         end),
+    awful.key({ modkey, "Mod1" }, "a",        function () awful.tag.incncol( 1)         end),
+    awful.key({ modkey, "Mod1" }, "e",        function () awful.tag.incncol(-1)         end),
     -- Switch layout
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
     awful.key({ modkey,           }, "Tab",   function () awful.client.focus.history.previous() if client.focus then client.focus:raise() end end),
 
     -- Launching programs
-    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Shift"   }, "f", function () awful.util.spawn("firefox") end),
-    awful.key({ modkey, "Shift"   }, "t", function () awful.util.spawn("thunar") end),
-    awful.key({ modkey, "Shift"   }, "n", function () awful.util.spawn("nautilus") end),
+    awful.key({ modkey,           }, "Return",function () awful.util.spawn(terminal) end),
+    awful.key({ modkey, "Shift"   }, "f",     function () awful.util.spawn("firefox") end),
+    awful.key({ modkey, "Shift"   }, "t",     function () awful.util.spawn("thunar") end),
+    awful.key({ modkey, "Shift"   }, "n",     function () awful.util.spawn("nautilus") end),
     awful.key({ modkey, "Shift"   }, "odiaeresis", function () awful.util.spawn("evince") end),
-    awful.key({ modkey, "Mod1" }, "r", awesome.restart),
-    awful.key({ modkey, "Mod1" }, "q", awesome.quit),
-
+    awful.key({ modkey, "Mod1" }, "r",        awesome.restart),
+    awful.key({ modkey, "Mod1" }, "q",        awesome.quit),
     -- Haha
-    awful.key({ modkey }, "c", function () run_once("mplayer ~/Dropbox/Ljud/ostrich_track2.aac") end),
-
+    awful.key({ modkey }, "c", function ()    run_once("mplayer ~/Dropbox/Ljud/ostrich_track2.aac") end),
     -- Window controls
-    awful.key({ modkey, "Mod1" }, "n", awful.client.restore),
-
+    awful.key({ modkey, "Mod1" }, "n",        awful.client.restore),
     -- Power management
-    awful.key({ }, "XF86Launch1", function () awful.util.spawn('xset dpms force off') end),
+    awful.key({ }, "XF86Launch1",             function () awful.util.spawn('xset dpms force off') end),
     awful.key({ modkey, "Shift" }, "s", function ()
                  awful.util.spawn('xscreensaver-command --lock')
                  awful.util.spawn('dbus-send --print-reply --system --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Suspend boolean:true')
                                           end),
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey },            "r",      function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
               function ()
@@ -290,9 +287,9 @@ globalkeys = awful.util.table.join(
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, ".",      function (c) c.fullscreen = not c.fullscreen  end),
-    awful.key({ modkey,     }, "q",      function (c) c:kill()                         end),
-    awful.key({ modkey, "Mod1" }, "space",  awful.client.floating.toggle                     ),
-    awful.key({ modkey, "Mod1" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
+    awful.key({ modkey,     }, "q",            function (c) c:kill()                         end),
+    awful.key({ modkey, "Mod1" }, "space",     awful.client.floating.toggle                     ),
+    awful.key({ modkey, "Mod1" }, "Return",    function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "l",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
@@ -513,7 +510,7 @@ client.connect_signal("manage", function (c, startup)
     end
 end)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal("focus",   function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
