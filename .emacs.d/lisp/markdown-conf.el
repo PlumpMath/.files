@@ -7,6 +7,7 @@
 
 (add-hook 'markdown-mode-hook 'visual-line-mode)
 (add-hook 'markdown-mode-hook 'auto-fill-mode)
+(add-hook 'markdown-mode-hook 'flyspell-mode)
 
 (provide 'markdown-conf)
 ;;; markdown-conf.el ends here
