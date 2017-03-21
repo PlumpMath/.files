@@ -38,7 +38,8 @@
                      clj-refactor
                      php-mode
 										 flyspell-lazy
-										 flyspell-correct-helm))
+										 flyspell-correct-helm
+										 guess-language))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
